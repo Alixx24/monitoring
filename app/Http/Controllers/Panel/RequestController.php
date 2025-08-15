@@ -37,25 +37,41 @@ class RequestController extends Controller
     public function edit($id)
     {
         $fetchRequest =  RequestModel::findOrFail($id);
-           return view('panel.request.edit', $fetchRequest);
+           return view('panel.request.edit', compact('fetchRequest'));
 
     }
     
-    public function update($id)
-    {
-        $request = RequestModel::findOrFail($id);
+  public function update($id)
+{
+    $requestModel = RequestModel::findOrFail($id);
 
-        if ($this->updateAction($request)) {
-            return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
-        } else {
-            return redirect()->route('panel.request.index')->with('error', 'Failed to updated request');
-        }
+    if ($this->updateAction($requestModel, request()->all())) {
+        return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
+    } else {
+        return redirect()->route('panel.request.index')->with('error', 'Failed to update request');
+    }
+}
+
+public function updateAction(RequestModel $requestModel, array $data)
+{
+    $validator = \Validator::make($data, [
+        'url' => 'required|url|max:255',
+        'name' => 'required|string|max:200',
+        'email' => 'required|email|max:150',
+    ]);
+
+    if ($validator->fails()) {
+        session()->flash('error', $validator->errors());
+        return false;
     }
 
-    public function updateAction(RequestModel $request)
-    {
-        dd(12);
-    }
+    $requestModel->url = $data['url'];
+    $requestModel->name = $data['name'];
+    $requestModel->email = $data['email'];
+
+    return $requestModel->save();
+}
+
 
 
     //delete
