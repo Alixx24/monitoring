@@ -11,8 +11,9 @@ class RequestController extends Controller
 {
     public function index()
     {
+        $fatchRequest = RequestModel::all();
 
-        return view('panel.request.index');
+        return view('panel.request.index', compact('fatchRequest'));
     }
 
     public function create()
@@ -30,5 +31,47 @@ class RequestController extends Controller
     {
         $validated = $reqValid->validated();
         return RequestModel::create($validated);
+    }
+
+
+    public function edit($id)
+    {
+        $fetchRequest =  RequestModel::findOrFail($id);
+           return view('panel.request.edit', $fetchRequest);
+
+    }
+    
+    public function update($id)
+    {
+        $request = RequestModel::findOrFail($id);
+
+        if ($this->updateAction($request)) {
+            return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
+        } else {
+            return redirect()->route('panel.request.index')->with('error', 'Failed to updated request');
+        }
+    }
+
+    public function updateAction(RequestModel $request)
+    {
+        dd(12);
+    }
+
+
+    //delete
+    public function delete($id)
+    {
+        $request = RequestModel::findOrFail($id);
+
+        if ($this->deleteAction($request)) {
+            return redirect()->route('panel.request.index')->with('success', 'Request deleted successfully');
+        } else {
+            return redirect()->route('panel.request.index')->with('error', 'Failed to delete request');
+        }
+    }
+
+    public function deleteAction(RequestModel $request)
+    {
+        return $request->delete();
     }
 }

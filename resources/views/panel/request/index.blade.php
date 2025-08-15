@@ -1,34 +1,40 @@
 @extends('panel.layouts.master')
 @section('title', 'Dashboard')
 @section('content')
-<a href="{{ route('panel.request.create') }}" class="btn btn-success">Create</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+    <a href="{{ route('panel.request.create') }}" class="btn btn-success">Create</a>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">url</th>
+                <th scope="col">email</th>
+                <th scope="col">name</th>
+                <th scope="col">created_at</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($fatchRequest as $request)
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{ $request->url }}</td>
+                    <td>{{ $request->email }}</td>
+                    <td>{{ $request->name }}</td>
+                    <td>{{ $request->created_at }}</td>
+
+                    <td>
+                        <a href="{{ route('panel.request.edit', $request->id) }}" class="btn btn-warning ">Edit</a>
+
+                        <form action="{{ route('panel.request.delete', $request->id) }}" method="post"
+                            style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-danger ">Delete</button>
+                        </form>
+
+                    </td>
+
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endsection
