@@ -24,7 +24,7 @@ class RequestController extends Controller
     public function store(RequestModelRequest $reqValid)
     {
         $this->createRequest($reqValid);
-        return redirect()->back();
+        return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
     }
 
     public function createRequest(RequestModelRequest $reqValid)
@@ -37,40 +37,39 @@ class RequestController extends Controller
     public function edit($id)
     {
         $fetchRequest =  RequestModel::findOrFail($id);
-           return view('panel.request.edit', compact('fetchRequest'));
-
-    }
-    
-  public function update($id)
-{
-    $requestModel = RequestModel::findOrFail($id);
-
-    if ($this->updateAction($requestModel, request()->all())) {
-        return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
-    } else {
-        return redirect()->route('panel.request.index')->with('error', 'Failed to update request');
-    }
-}
-
-public function updateAction(RequestModel $requestModel, array $data)
-{
-    $validator = \Validator::make($data, [
-        'url' => 'required|url|max:255',
-        'name' => 'required|string|max:200',
-        'email' => 'required|email|max:150',
-    ]);
-
-    if ($validator->fails()) {
-        session()->flash('error', $validator->errors());
-        return false;
+        return view('panel.request.edit', compact('fetchRequest'));
     }
 
-    $requestModel->url = $data['url'];
-    $requestModel->name = $data['name'];
-    $requestModel->email = $data['email'];
+    public function update($id)
+    {
+        $requestModel = RequestModel::findOrFail($id);
 
-    return $requestModel->save();
-}
+        if ($this->updateAction($requestModel, request()->all())) {
+            return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
+        } else {
+            return redirect()->route('panel.request.index')->with('error', 'Failed to update request');
+        }
+    }
+
+    public function updateAction(RequestModel $requestModel, array $data)
+    {
+
+        $validator = \Validator::make($data, [
+            'url' => 'required|url|max:255',
+            'name' => 'required|string|max:200',
+            'email' => 'required|email|max:150',
+            'duration' => 'required',
+        ]);
+
+
+        $requestModel->url = $data['url'];
+        $requestModel->name = $data['name'];
+        $requestModel->email = $data['email'];
+        $requestModel->duration = $data['duration'];
+
+
+        return $requestModel->save();
+    }
 
 
 

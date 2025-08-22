@@ -6,11 +6,14 @@
         <form class="col-9" action="{{ route('panel.request.update', $fetchRequest->id) }}" method="POST">
             @csrf
             @method('put')
+
+
             <div class="form-group">
                 <label for="url">Url</label>
                 <input value="{{ old('url', $fetchRequest->url) }}" type="text" name="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter Url...">
             </div>
+
 
             <div class="form-group mt-1">
                 <label for="exampleInputEmail1">Name</label>
@@ -26,6 +29,11 @@
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
+                <div class="form-group">
+                <label for="duration">Duration(ms)</label>
+                <input value="{{ old('duration', $fetchRequest->duration) }}" type="number" name="duration" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter duration...">
+            </div>
 
             <button type="submit" class="btn btn-success mt-4">Make it</button>
         </form>

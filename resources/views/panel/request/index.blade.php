@@ -10,6 +10,7 @@
                 <th scope="col">url</th>
                 <th scope="col">email</th>
                 <th scope="col">name</th>
+                  <th scope="col">duration</th>
                 <th scope="col">created_at</th>
             </tr>
         </thead>
@@ -20,6 +21,9 @@
                     <td>{{ $request->url }}</td>
                     <td>{{ $request->email }}</td>
                     <td>{{ $request->name }}</td>
+
+   <td>{{ $request->duration }}</td>
+                    
                     <td>{{ $request->created_at }}</td>
 
                     <td>

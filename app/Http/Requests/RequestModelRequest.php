@@ -19,13 +19,14 @@ class RequestModelRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-  public function rules(): array
-{
-    return [
-        'url' => 'required',
-        'name' => 'required',
-        'email' => 'required|email'
-    ];
-}
+    public function rules(): array
+    {
+        return [
+            'url' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'duration' => 'required|numeric|max:150',
 
+        ];
+    }
 }

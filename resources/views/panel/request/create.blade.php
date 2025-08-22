@@ -26,6 +26,14 @@
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
+                <div class="form-group mt-1">
+                <label for="exampleInputEmail1">duration(ms)</label>
+                <input type="number" name="duration" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter duration...">
+
+            </div>
+
+
 
             <button type="submit" class="btn btn-success mt-4">Make it</button>
         </form>

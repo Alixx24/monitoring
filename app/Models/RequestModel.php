@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class RequestModel extends Model
 {
         protected $table = 'requests';
-        protected $fillable = ['url','email', 'name'];
+        protected $fillable = ['url','email', 'name', 'duration'];
 
 }
