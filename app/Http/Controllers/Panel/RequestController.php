@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestModelRequest;
+use App\Jobs\SendUrlRequestJob;
 use App\Models\RequestModel;
 use Illuminate\Http\Request;
 
@@ -27,10 +28,18 @@ class RequestController extends Controller
         return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
     }
 
+
+
     public function createRequest(RequestModelRequest $reqValid)
     {
         $validated = $reqValid->validated();
         return RequestModel::create($validated);
+
+        for ($i = 0; $i < $validated['duration']; $i++) {
+            SendUrlRequestJob::dispatch($validated['url'])->delay(now()->addMinutes($i));
+        }
+
+        return $requestModel;
     }
 
 
@@ -88,5 +97,31 @@ class RequestController extends Controller
     public function deleteAction(RequestModel $request)
     {
         return $request->delete();
+    }
+
+
+
+
+
+
+    public function storeTestJob(RequestModel $reqValid)
+    {
+
+
+        $input = [
+            'url' => 'http://127.0.0.1:8000/test-job',
+            'name' => 'test',
+            'email' => 'alimohammadi123450@gmail.com',
+            'duration' => '1',
+        ];
+
+        $result = RequestModel::create($input);
+
+
+
+
+        for ($i = 0; $i < $input['duration']; $i++) {
+            SendUrlRequestJob::dispatch($input['url'])->delay(now()->addMinutes($i));
+        }
     }
 }

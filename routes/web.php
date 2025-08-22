@@ -2,10 +2,15 @@
 
 use App\Http\Controllers\Panel\RequestController;
 use Illuminate\Support\Facades\Route;
+Route::get('/tests', [RequestController::class, 'storeTestJob'])->name('panel.request.index');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
 
 Route::prefix('/panel/requests')->group(function () {
     Route::get('/', [RequestController::class, 'index'])->name('panel.request.index');
