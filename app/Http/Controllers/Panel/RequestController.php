@@ -29,18 +29,22 @@ class RequestController extends Controller
     }
 
 
+public function createRequest(RequestModelRequest $reqValid)
+{
+    $validated = $reqValid->validated();
 
-    public function createRequest(RequestModelRequest $reqValid)
-    {
-        $validated = $reqValid->validated();
-        return RequestModel::create($validated);
+    $requestModel = RequestModel::create([
+        'url' => $validated['url'],
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'duration' => $validated['duration'],
+        'status' => 'active',
+        'last_visited' => null,
+    ]);
 
-        for ($i = 0; $i < $validated['duration']; $i++) {
-            SendUrlRequestJob::dispatch($validated['url'])->delay(now()->addMinutes($i));
-        }
+    return $requestModel;
+}
 
-        return $requestModel;
-    }
 
 
     public function edit($id)
@@ -102,26 +106,24 @@ class RequestController extends Controller
 
 
 
+public function storeTestJob()
+{
+    $requestModel = RequestModel::create([
+        'url' => 'http://127.0.0.1:8000/test-job',
+        'name' => 'test',
+        'email' => 'alimohammadi123450@gmail.com',
+        'duration' => 1,
+        'status' => 'active',
+        'last_visited' => null,
+    ]);
+
+    return $requestModel;
+}
+
+public function testJob()
+{
+  
+}
 
 
-    public function storeTestJob(RequestModel $reqValid)
-    {
-
-
-        $input = [
-            'url' => 'http://127.0.0.1:8000/test-job',
-            'name' => 'test',
-            'email' => 'alimohammadi123450@gmail.com',
-            'duration' => '1',
-        ];
-
-        $result = RequestModel::create($input);
-
-
-
-
-        for ($i = 0; $i < $input['duration']; $i++) {
-            SendUrlRequestJob::dispatch($input['url'])->delay(now()->addMinutes($i));
-        }
-    }
 }

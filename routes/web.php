@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Panel\RequestController;
 use Illuminate\Support\Facades\Route;
-Route::get('/tests', [RequestController::class, 'storeTestJob'])->name('panel.request.index');
+Route::get('/testss', [RequestController::class, 'storeTestJob'])->name('panel.request.index');
+Route::get('/test-job', [RequestController::class, 'testJob'])->name('panel.request.index');
+
 
 Route::get('/', function () {
     return view('welcome');
