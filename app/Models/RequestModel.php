@@ -8,5 +8,8 @@ class RequestModel extends Model
 {
         protected $table = 'requests';
 protected $fillable = ['url', 'email', 'name', 'duration', 'status', 'last_visited'];
+protected $casts = [
+    'last_visited' => 'datetime',
+];
 
 }

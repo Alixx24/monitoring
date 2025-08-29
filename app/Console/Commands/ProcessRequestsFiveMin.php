@@ -7,18 +7,33 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class ProcessRequests extends Command
+class ProcessRequestsFiveMin extends Command
 {
-    protected $signature = 'requests:process';
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'app:process-requests-five-min';
 
-    protected $description = 'Send HTTP requests based on user requests and their durations';
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Send HTTP requests based on user requests and their 5 durations';
+
+    /**
+     * Execute the console command.
+     */
+
+
     public function handle()
     {
         $now = now();
+        $requests = RequestModel::where('status', 'active')->where('duration', 5)->get();
 
-        $requests = RequestModel::where('status', 'active')->where('duration', 1)->get();
-
-       foreach ($requests as $request) {
+        foreach ($requests as $request) {
 
 
             try {
@@ -38,9 +53,5 @@ class ProcessRequests extends Command
                 $this->error("Failed to send request to {$request->url}: " . $e->getMessage());
             }
         }
-
-
-        $this->info('All requests processed.');
-        Log::info('All requests processed.');
     }
 }
