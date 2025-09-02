@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RequestModelRequest;
 use App\Jobs\SendUrlRequestJob;
+use App\Models\Duration;
 use App\Models\RequestModel;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,8 @@ class RequestController extends Controller
 
     public function create()
     {
+        $fetchDuration = Duration::all();
+     
         return view('panel.request.create');
     }
 
