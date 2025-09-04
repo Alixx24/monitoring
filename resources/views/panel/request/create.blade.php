@@ -1,6 +1,7 @@
 @extends('panel.layouts.master')
 @section('title', 'Dashboard')
 @section('content')
+
     <a href="{{ route('panel.request.index') }}" class="btn btn-primary m-1">Back</a>
     <div class="d-flex justify-content-center align-items-center">
 
@@ -11,6 +12,9 @@
                 <input type="text" name="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter Url...">
             </div>
+
+
+
 
             <div class="form-group mt-1">
                 <label for="exampleInputEmail1">Name</label>
@@ -26,12 +30,16 @@
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
 
-                <div class="form-group mt-1">
-                <label for="exampleInputEmail1">duration(ms)</label>
-                <input type="number" name="duration" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter duration...">
+         
 
-            </div>
+
+            <select name="duration_id" class="form-select mt-2" id="" name="duration_id">
+                <option selected disabled>انتخاب کنید</option>
+                @foreach ($fetchDuration as $duration)
+                    <option value="{{ $duration->id }}">{{ $duration->duration }}</option>
+                @endforeach
+            </select>
+
 
 
 

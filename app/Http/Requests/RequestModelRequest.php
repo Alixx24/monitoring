@@ -25,7 +25,7 @@ class RequestModelRequest extends FormRequest
             'url' => 'required',
             'name' => 'required',
             'email' => 'required|email',
-            'duration' => 'required|numeric|max:150',
+            'duration_id' => 'nullable',
 
         ];
     }

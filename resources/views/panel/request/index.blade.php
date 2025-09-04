@@ -22,7 +22,8 @@
                     <td>{{ $request->email }}</td>
                     <td>{{ $request->name }}</td>
 
-   <td>{{ $request->duration }}</td>
+<td>{{ $request->duration->duration ?? 'ندارد' }}</td>
+
                     
                     <td>{{ $request->created_at }}</td>
 

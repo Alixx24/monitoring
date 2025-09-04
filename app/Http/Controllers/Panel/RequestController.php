@@ -11,22 +11,24 @@ use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {
-    public function index()
-    {
-        $fatchRequest = RequestModel::all();
+public function index()
+{
+$fatchRequest = RequestModel::with('duration')->get();
 
-        return view('panel.request.index', compact('fatchRequest'));
-    }
+    
+    return view('panel.request.index', compact('fatchRequest'));
+}
 
     public function create()
     {
         $fetchDuration = Duration::all();
      
-        return view('panel.request.create');
+        return view('panel.request.create',compact('fetchDuration'));
     }
 
     public function store(RequestModelRequest $reqValid)
     {
+        
         $this->createRequest($reqValid);
         return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
     }
@@ -40,7 +42,7 @@ public function createRequest(RequestModelRequest $reqValid)
         'url' => $validated['url'],
         'name' => $validated['name'],
         'email' => $validated['email'],
-        'duration' => $validated['duration'],
+        'duration_id' => $validated['duration_id'],
         'status' => 'active',
         'last_visited' => null,
     ]);
