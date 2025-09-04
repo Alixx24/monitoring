@@ -36,11 +36,11 @@ Route::prefix('/panel/requests')->group(function () {
 });
 
 Route::prefix('/panel/duration')->group(function () {
-    Route::get('/', [DurationController::class, 'index'])->name('panel.request.index');
+    Route::get('/', [DurationController::class, 'index'])->name('panel.duration.index');
     Route::get('/create', [DurationController::class, 'create'])->name('panel.duration.create');
     Route::get('/edit/{id}', [RequestController::class, 'edit'])->name('panel.request.edit');
     Route::put('/update/{id}', [RequestController::class, 'update'])->name('panel.request.update');
 
     Route::post('/store', [DurationController::class, 'store'])->name('panel.duration.store');
-    Route::post('/delete/{id}', [RequestController::class, 'delete'])->name('panel.request.delete');
+    Route::post('/delete/{id}', [DurationController::class, 'delete'])->name('panel.duration.delete');
 });

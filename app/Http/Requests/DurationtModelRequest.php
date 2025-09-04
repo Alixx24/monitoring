@@ -22,8 +22,8 @@ class DurationtModelRequest extends FormRequest
     public function rules(): array
     {
          return [
-            'duration' => 'required|email',
-            'user_id' => 'required|numeric|max:150',
+            'duration' => 'nullable',
+            'user_id' => 'nullable',
         ];
     }
 }

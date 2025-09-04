@@ -26,9 +26,9 @@
                     <td>{{ $request->created_at }}</td>
 
                     <td>
-                        <a href="{{ route('panel.request.edit', $request->id) }}" class="btn btn-warning ">Edit</a>
+                       
 
-                        <form action="{{ route('panel.request.delete', $request->id) }}" method="post"
+                        <form action="{{ route('panel.duration.delete', $request->id) }}" method="post"
                             style="display:inline;">
                             @csrf
                             <button type="submit" class="btn btn-danger ">Delete</button>
