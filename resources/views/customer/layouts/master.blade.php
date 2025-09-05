@@ -13,9 +13,47 @@
     <title>@yield('title', 'HRM Project')</title>
 </head>
 
-@include('panel.layouts.head-tag')
-@include('panel.layouts.header')
-<body>
-    @yield('content')
+<style>
+    .bg-of-body{
+        background-color: rgb(26, 29, 56);
+    }
+    
+</style>
+@include('customer.layouts.head-tag')
+@include('customer.layouts.header')
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+
+    footer {
+        flex-shrink: 0;
+        background-color: #f8f9fa;
+        padding: 20px 0;
+        text-align: center;
+    }
+</style>
+
+<body class="bg-of-body">
+    <main>
+        @yield('content')
+    </main>
+
+    @include('customer.layouts.footer')
+
+
 </body>
+
 </html>
