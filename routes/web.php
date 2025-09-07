@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Panel\DurationController;
 use App\Http\Controllers\Panel\RequestController;
@@ -22,8 +23,17 @@ Route::get('/test-job', [RequestController::class, 'testJob'])->name('panel.requ
 
 
 
+//user
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('register.form');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->name('verify.email');
+
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
 
+//panel
 
 Route::prefix('/panel/requests')->group(function () {
     Route::get('/', [RequestController::class, 'index'])->name('panel.request.index');

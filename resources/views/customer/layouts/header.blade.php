@@ -42,10 +42,53 @@
         </li>
       </ul>
       <form class="d-flex">
-         <a class="btn btn-outline-success me-2" type="submit">Login</a>
+         <a id="loginBtn" class="btn btn-outline-success me-2" type="submit">Login</a>
 
         <a class="btn btn-outline-primary me-2" type="submit">Sign up</a>
       </form>
     </div>
   </div>
 </nav>
+
+
+
+
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="بستن"></button>
+      </div>
+      <div class="modal-body">
+        محتوای فرم ورود در اینجا قرار می‌گیرد.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+        <button type="button" class="btn btn-primary">ورود</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+</script>
+
+
+<script>
+  $(document).ready(function() {
+     $('#loginBtn').click(function(e) {
+      e.preventDefault();
+      var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+      loginModal.show();
+     });
+  });
+</script>
