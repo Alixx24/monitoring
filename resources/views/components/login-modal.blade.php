@@ -1,10 +1,5 @@
-
-@extends('customer.layouts.master')
-@section('title', 'Dashboard')
-
-@section('content')
-
 <!-- resources/views/components/login-modal.blade.php -->
+
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -32,6 +27,3 @@
 
 
 
-
-
-@endsection
