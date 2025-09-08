@@ -55,7 +55,8 @@
                 </button>
 
 
-                <a class="btn btn-outline-primary me-2" type="submit">Sign up</a>
+                <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
+                    data-bs-target="#registerModal">Sign up</a>
             </form>
         </div>
     </div>
@@ -64,3 +65,4 @@
 
 
 <x-login-modal />
+<x-register-modal />

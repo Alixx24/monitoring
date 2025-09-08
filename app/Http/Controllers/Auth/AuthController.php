@@ -14,10 +14,11 @@ class AuthController extends Controller
     public function showRegister()
     {
 
-        return view('auth.register');
+      
     }
     public function register(Request $request)
     {
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -32,19 +33,20 @@ class AuthController extends Controller
             'remember_token' => Str::random(60),
             'verification_token' => Str::random(60),
         ]);
+       
         // Mail::to($user->email)->send(new VerificationMail($user));
-
-        return redirect()->route('login.form')->with('success', 'ثبت نام موفق بود لطفا ایمیل خود را تایید کنید');
+        return redirect()->back()->with('success', 'ثبت نام موفق بود لطفا ایمیل خود را تایید کنید');
     }
 
 
     public function showLogin()
     {
-        return view('auth.login');
+      
     }
 
     public function login(Request $request)
     {
+        dd('login');
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
