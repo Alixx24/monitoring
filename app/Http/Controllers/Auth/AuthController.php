@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,38 +12,41 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-    public function showRegister()
-    {
+    public function showRegister() {}
 
-      
-    }
-    public function register(Request $request)
-    {
-        
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed', // password_confirmation required in form
-        ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'email_verified_at' => null,
-            'remember_token' => Str::random(60),
-            'verification_token' => Str::random(60),
-        ]);
-       
+    public function register(RegisterRequest $reqValid)
+    {
+        $user = $this->createUser($reqValid);
         // Mail::to($user->email)->send(new VerificationMail($user));
         return redirect()->back()->with('success', 'ثبت نام موفق بود لطفا ایمیل خود را تایید کنید');
     }
 
 
-    public function showLogin()
+
+    public function createUser(RegisterRequest $reqValid)
     {
-      
+        $validated = $reqValid->validated();
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'email_verified_at' => null,
+            'remember_token' => Str::random(60),
+            'verification_token' => Str::random(60),
+        ]);
+
+        return $user;
     }
+
+
+
+
+
+
+
+    public function showLogin() {}
 
     public function login(Request $request)
     {
