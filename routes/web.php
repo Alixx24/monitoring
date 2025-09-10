@@ -4,7 +4,41 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Panel\DurationController;
 use App\Http\Controllers\Panel\RequestController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
+
+Route::get('login/github', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('login/github/callback', function () {
+    $githubUser = Socialite::driver('github')->user();
+
+    // بررسی کاربر در دیتابیس
+    $user = User::where('github_id', $githubUser->id)->first();
+
+    if (!$user) {
+        // اگر کاربر وجود ندارد، ایجاد کن
+        $user = User::create([
+            'name' => $githubUser->name ?? $githubUser->nickname,
+            'email' => $githubUser->email,
+            'github_id' => $githubUser->id,
+            // اگر نیاز داری، فیلدهای دیگر رو پر کن
+            'password' => bcrypt(Str::random(24)), // رمز تصادفی چون ورود با GitHub است
+        ]);
+    }
+
+    // ورود کاربر
+    Auth::login($user, true);
+
+    return redirect('/home'); // یا هر جایی که می‌خوای بعد ورود بری
+});
+
+
+
+
 
 
 //Home
