@@ -50,7 +50,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        dd('login');
+
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -62,13 +62,13 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'کاربری با این ایمیل پیدا نشد']);
         }
 
-        if (!$user->email_verified_at) {
-            return back()->withErrors(['email' => 'ایمیل شما تایید نشده است']);
-        }
+        // if (!$user->email_verified_at) {
+        //     return back()->withErrors(['email' => 'ایمیل شما تایید نشده است']);
+        // }
 
         if (Auth::attempt($credentials, $request->boolean('remember', false))) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            // return redirect()->intended('dashboard');
         }
 
         return back()->withErrors(['email' => 'اطلاعات ورود اشتباه است.']);

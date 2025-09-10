@@ -9,9 +9,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Platform</a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,17 +50,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Documention</a>
                 </li>
+
             </ul>
-            <form class="d-flex">
-                <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
-                    data-bs-target="#loginModal">
-                    Login
-                </button>
+
+            @auth
+                Welcom {{ auth()->user()->email }}
+            @endauth
+
+            @if (auth()->guest())
+                <form class="d-flex">
+                    <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        Login
+                    </button>
 
 
-                <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
-                    data-bs-target="#registerModal">Sign up</a>
-            </form>
+                    <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">Sign up</a>
+                </form>
+                @endif
         </div>
     </div>
 </nav>
