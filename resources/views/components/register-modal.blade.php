@@ -21,17 +21,20 @@
                         <input type="email" class="form-control" id="email" name="email" required autofocus>
                     </div>
 
-                 <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
 
-    <div class="mb-3">
-        <label for="password_confirmation" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required>
-    </div>
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="password_confirmation"
+                            id="password_confirmation" required>
+                    </div>
 
-                    <button type="submit" class="btn btn-dark">Register</button>
+                    <button type="submit" class="btn btn-dark mt-2 text-end">Register</button>
+                    <i class="bi bi-github fs-1 float-end"></i>
+
                 </form>
             </div>
         </div>

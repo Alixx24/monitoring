@@ -8,14 +8,20 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 Route::get('login/github', function () {
+    
     return Socialite::driver('github')->redirect();
 });
 
 Route::get('login/github/callback', function () {
-    $githubUser = Socialite::driver('github')->user();
-
+    
+   try {
+        $githubUser = Socialite::driver('github')->user();
+    } catch (\Laravel\Socialite\Two\InvalidStateException $e) {
+        return redirect('/login/github')->with('error', 'مشکلی در ورود با گیت‌هاب پیش آمد. لطفاً دوباره تلاش کنید.');
+    }
     // بررسی کاربر در دیتابیس
     $user = User::where('github_id', $githubUser->id)->first();
 
@@ -33,7 +39,7 @@ Route::get('login/github/callback', function () {
     // ورود کاربر
     Auth::login($user, true);
 
-    return redirect('/home'); // یا هر جایی که می‌خوای بعد ورود بری
+    return redirect('/'); // یا هر جایی که می‌خوای بعد ورود بری
 });
 
 
