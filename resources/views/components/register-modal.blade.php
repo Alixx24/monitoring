@@ -1,10 +1,5 @@
 <!-- resources/views/components/login-modal.blade.php -->
-<style>
-    .github-icon {
-    color: #000; /* مشکی */
-}
 
-</style>
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('register.post') }}" >
+                <form method="POST" action="{{ route('register.post') }}">
                     @csrf
 
                     <div class="mb-3">
@@ -38,9 +33,9 @@
                     </div>
 
                     <button type="submit" class="btn btn-dark mt-2 text-end">Register</button>
-                   <a href="{{ url('login/github') }}" class="text-decoration-none github-icon">
-    <i class="bi bi-github fs-1 float-end"></i>
-</a>
+                    <a href="{{ url('login/github') }}" class="text-decoration-none github-icon">
+                        <i class="bi bi-github fs-1 float-end"></i>
+                    </a>
 
 
                 </form>

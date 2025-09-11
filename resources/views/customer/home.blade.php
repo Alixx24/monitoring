@@ -37,37 +37,82 @@
             </div>
 
 
-
-            <p class="d-inline-flex gap-1 mt-5 mb-5">
-                <a class="btn btn-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
-                    aria-expanded="false" aria-controls="multiCollapseExample1">Uptime monitoring <span class="bi bi-arrow-down"></span></a>
+            <p class="d-inline-flex gap-1 mt-5 mb-5"> <a class="btn btn-dark" data-bs-toggle="collapse"
+                    href="#multiCollapseExample1" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample1">Uptime monitoring <span class="bi bi-arrow-down"></span></a>
                 <button class="btn btn-dark" type="button" data-bs-toggle="collapse"
                     data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Log
-                    management <span class="bi bi-arrow-down"></span></button>
-                
-            </p>
+                    management <span class="bi bi-arrow-down"></span></button> </p>
             <div class="row">
-                <div class="col">
+                <div class="col mb-3">
                     <div class="collapse multi-collapse" id="multiCollapseExample1">
                         <div class="card card-body">
-                            <h4>Uptime monitoring</h4>
-                            Our Uptime Monitoring service ensures your website is always online and accessible. We
-                            continuously check your site’s status and immediately notify you if any downtime occurs, helping
-                            you maintain a reliable online presence.
+                            <h4>Uptime monitoring</h4> Our Uptime Monitoring service ensures your website is always online
+                            and accessible. We continuously check your site’s status and immediately notify you if any
+                            downtime occurs, helping you maintain a reliable online presence.
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col mb-3">
                     <div class="collapse multi-collapse" id="multiCollapseExample2">
                         <div class="card card-body">
-                            <h4>Log Management</h4>
-                            Our Log Management system collects, stores, and analyzes your website’s logs to help you track
-                            activities, troubleshoot issues, and improve security. Access detailed reports anytime to stay
-                            informed about your site’s performance.
+                            <h4>Log Management</h4> Our Log Management system collects, stores, and analyzes your website’s
+                            logs to help you track activities, troubleshoot issues, and improve security. Access detailed
+                            reports anytime to stay informed about your site’s performance.
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+
+
+            <style>
+                .card-price {
+                    width: 18rem;
+                    /* عرض ثابت برای همه کارت‌ها */
+                }
+
+                .card.middle {
+                    height: 13.75rem;
+                    /* ارتفاع بیشتر برای کارت وسطی */
+                }
+            </style>
+
+            <div class="d-flex justify-content-center align-items-end gap-3">
+
+                <div class="card card-price text-white bg-dark mb-3">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+
+
+                <div class="card card-price text-white bg-secondary  middle">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Secondary card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+
+                <div class="card card-price text-white bg-dark mb-3">
+                    <div class="card-header">Header</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Dark card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+
+
 
 
 
@@ -129,7 +174,6 @@
                     </div>
                 </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         </div>
     </section>
 @endsection
