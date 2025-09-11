@@ -55,6 +55,13 @@
 
             @auth
                 Welcom {{ auth()->user()->email }}
+
+                <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger ms-2">
+                        Log out
+                    </button>
+                </form>
             @endauth
 
             @if (auth()->guest())
@@ -68,7 +75,7 @@
                     <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
                         data-bs-target="#registerModal">Sign up</a>
                 </form>
-                @endif
+            @endif
         </div>
     </div>
 </nav>

@@ -71,6 +71,7 @@ Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->nam
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout.post');
 
 
 //panel
