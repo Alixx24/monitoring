@@ -54,11 +54,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 //User Dashboard
+Route::prefix('/user/dashboard')->group(function () {
+Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::get('/user/dashboard/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
 
-
-
+});
 
 
 
