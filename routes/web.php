@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Panel\DurationController;
 use App\Http\Controllers\Panel\RequestController;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('login/github', function () {
     
@@ -50,6 +52,10 @@ Route::get('login/github/callback', function () {
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
+
+//User Dashboard
+
+Route::get('/user/dashboard/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
 
 
 

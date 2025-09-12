@@ -61,6 +61,9 @@
                     <button type="submit" class="btn btn-outline-danger ms-2">
                         Log out
                     </button>
+                    <a href="{{ route('dashboard.index', auth()->user()->id) }}"
+                        class="btn d-inline btn-outline-success ms-2">Dashboard</a>
+
                 </form>
             @endauth
 

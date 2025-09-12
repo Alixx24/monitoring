@@ -83,31 +83,28 @@
             <div class="d-flex justify-content-center align-items-end gap-3">
 
                 <div class="card card-price text-white bg-dark mb-3">
-                    <div class="card-header">Header</div>
+                    <div class="card-header">Limited</div>
                     <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+                        <h5 class="card-title">200 requests / Day</h5>
+                        <p class="card-text">Free</p>
                     </div>
                 </div>
 
 
                 <div class="card card-price text-white bg-secondary  middle">
-                    <div class="card-header">Header</div>
+                    <div class="card-header">Unlimited</div>
                     <div class="card-body">
-                        <h5 class="card-title">Secondary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
+                        <h5 class="card-title">1000 requests / Day</h5>
+                        <br>
+                        <p class="card-text">100,000 IRT</p>
                     </div>
                 </div>
 
                 <div class="card card-price text-white bg-dark mb-3">
-                    <div class="card-header">Header</div>
+                    <div class="card-header">Limited</div>
                     <div class="card-body">
-                        <h5 class="card-title">Dark card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's
-                            content.</p>
+                        <h5 class="card-title">100 requests / Day</h5>
+                        <p class="card-text">Free</p>
                     </div>
                 </div>
             </div>
