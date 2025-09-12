@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RequestModel extends Model
 {
     protected $table = 'requests';
-    protected $fillable = ['url', 'email', 'name', 'duration_id', 'status', 'last_visited'];
+    protected $fillable = ['url', 'email', 'name', 'duration_id', 'status', 'last_visited','user_id'];
     protected $casts = [
         'last_visited' => 'datetime',
     ];

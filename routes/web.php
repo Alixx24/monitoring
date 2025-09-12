@@ -57,7 +57,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::prefix('/user/dashboard')->group(function () {
 Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
 
-
+  Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
 });
 
 
