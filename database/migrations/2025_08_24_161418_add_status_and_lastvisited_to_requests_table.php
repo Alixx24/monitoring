@@ -12,7 +12,7 @@ return new class extends Migration
 public function up()
 {
     Schema::table('requests', function (Blueprint $table) {
-        $table->string('status')->default('active');
+        $table->bigInteger('status')->default(1);
         $table->timestamp('last_visited')->nullable();
     });
 }

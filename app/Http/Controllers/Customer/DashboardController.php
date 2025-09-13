@@ -16,7 +16,10 @@ class DashboardController extends Controller
 
         $user = User::find($id);
 
-        return view('customer.dashboard.index', compact('user'));
+        $userId = auth()->user()->id;
+        $fetchRequest = RequestModel::where('user_id', $userId)->get();
+        
+        return view('customer.dashboard.index', compact('user', 'fetchRequest'));
     }
 
     public function create()
