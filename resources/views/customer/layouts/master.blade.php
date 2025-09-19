@@ -52,22 +52,57 @@
         }
     </style>
 </head>
+<body class="bg-of-body" style="margin:0;">
 
-<body class="bg-of-body">
+  <div id="particles-js"
+       style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
 
-    @include('customer.layouts.header')
+  @include('customer.layouts.header')
 
-    <main>
-        @yield('content')
-    </main>
 
-    @include('customer.layouts.footer')
+  <main class="hero-section">
+    @yield('content')
+  </main>
+
+  @include('customer.layouts.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script></script>
 
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "size": {
+                    "value": 3
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

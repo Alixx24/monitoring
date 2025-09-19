@@ -12,7 +12,7 @@
             /* تصویر عرض والد را بگیرد */
         }
     </style>
-    <section class="hero-section">
+    <section >
         <div class="container">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -172,5 +172,8 @@
                 </div>
             </div>
         </div>
+
+    
+
     </section>
 @endsection

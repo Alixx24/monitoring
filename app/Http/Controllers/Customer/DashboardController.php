@@ -35,7 +35,8 @@ class DashboardController extends Controller
     {
         $userId  = auth()->id();
         $this->createRequest($reqValid,$userId );
-        // return redirect()->route('panel.request.index')->with('success', 'Request updated successfully');
+
+    return redirect()->back()->with('success', 'Request created successfully');
     }
 
 
@@ -49,7 +50,7 @@ class DashboardController extends Controller
             'email' => $validated['email'],
             'duration_id' => $validated['duration_id'],
             'user_id' =>  $userId ,
-            'status' => 'active',
+            'status' => 1,
             'last_visited' => null,
         ]);
 

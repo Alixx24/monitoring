@@ -38,9 +38,9 @@
 
 
             <select name="duration_id" class="form-select mt-2" id="" name="duration_id">
-                <option selected disabled>انتخاب کنید</option>
+                <option selected disabled>choose</option>
                 @foreach ($fetchDuration as $duration)
-                    <option value="{{ $duration->id }}">{{ $duration->duration }}</option>
+                    <option value="{{ $duration->id }}">{{ $duration->duration }} Min</option>
                 @endforeach
             </select>
 

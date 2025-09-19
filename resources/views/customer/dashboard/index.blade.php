@@ -30,7 +30,7 @@
                         <th scope="row">1</th>
 
                         <td>{{ $item->name }}</td>
-                        <td>{{ $item->duration_id }}</td>
+                        <td>{{ $item->duration_id }} Min</td>
                         <td>{{ $item->url }}</td>
                         <td>{{ $item->status == 1 ? 'Active' : 'Deactive' }}</td>
 
