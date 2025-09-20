@@ -2,7 +2,7 @@
 
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content mt-of-reg"">
             <div class="modal-header">
                 <h5 class="modal-title" id="loginModalLabel">Register</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -35,6 +35,10 @@
                     <button type="submit" class="btn btn-dark mt-2 text-end">Register</button>
                     <a href="{{ url('login/github') }}" class="text-decoration-none github-icon">
                         <i class="bi bi-github fs-1 float-end"></i>
+                    </a>
+
+                       <a href="{{ url('auth/google') }}" class="text-decoration-none gmail-icon">click
+                        <i class="bi bi-gmail fs-1 float-end"></i>
                     </a>
 
 

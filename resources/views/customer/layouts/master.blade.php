@@ -50,6 +50,14 @@
             color: #000;
 
         }
+
+         .mt-of-login{
+            margin-top: 35%;
+        }
+
+        .mt-of-reg{
+            margin-top: 25%;
+        }
     </style>
 </head>
 <body class="bg-of-body" style="margin:0;">

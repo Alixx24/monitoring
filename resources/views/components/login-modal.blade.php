@@ -2,8 +2,8 @@
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content mt-of-login">
+      <div class="modal-header" >
         <h5 class="modal-title" id="loginModalLabel">Login</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
@@ -18,7 +18,10 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
           </div>
-          <button type="submit" class="btn btn-dark">Login</button>
+          <button type="submit" class="btn btn-dark mt-2">Login</button>
+            <a href="{{ url('login/github') }}" class="text-decoration-none github-icon">
+                        <i class="bi bi-github fs-1 float-end"></i>
+                    </a>
         </form>
       </div>
     </div>

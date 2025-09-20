@@ -17,6 +17,47 @@ Route::get('login/github', function () {
     return Socialite::driver('github')->redirect();
 });
 
+
+//gmail
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->stateless()->user();
+
+    // اول سعی کن با google_id پیداش کنیم
+    $user = User::where('google_id', $googleUser->getId())->first();
+
+    // اگر نبود، با ایمیل چک کن (ممکنه قبلا ایمیل ثبت شده باشه)
+    if (!$user) {
+        $user = User::where('email', $googleUser->getEmail())->first();
+
+        if ($user) {
+            // اگر کاربر با همون ایمیل وجود داشت، google_id رو اضافه کن
+            $user->update([
+                'google_id' => $googleUser->getId(),
+            ]);
+        } else {
+            // کاربر جدید، ثبت‌نام کن
+            $user = User::create([
+                'name' => $googleUser->getName(),
+                'email' => $googleUser->getEmail(),
+                'google_id' => $googleUser->getId(),
+                'password' => bcrypt(Str::random(16)), // رمز تصادفی
+            ]);
+        }
+    }
+
+    Auth::login($user);
+
+    return redirect('/'); // به مسیر دلخواهت تغییرش بده
+});
+
+
+
+//github
 Route::get('login/github/callback', function () {
     
    try {
