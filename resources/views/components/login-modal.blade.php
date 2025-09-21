@@ -22,6 +22,10 @@
             <a href="{{ url('login/github') }}" class="text-decoration-none github-icon">
                         <i class="bi bi-github fs-1 float-end"></i>
                     </a>
+                      <a href="{{ url('auth/google') }}" class="text-decoration-none">
+                        <i class="bi bi-google fs-1 float-end text-danger me-3"></i>
+                        </i>
+                    </a>
         </form>
       </div>
     </div>

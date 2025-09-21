@@ -24,66 +24,22 @@ Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
 });
 
-Route::get('/auth/google/callback', function () {
-    $googleUser = Socialite::driver('google')->stateless()->user();
 
-    // اول سعی کن با google_id پیداش کنیم
-    $user = User::where('google_id', $googleUser->getId())->first();
 
-    // اگر نبود، با ایمیل چک کن (ممکنه قبلا ایمیل ثبت شده باشه)
-    if (!$user) {
-        $user = User::where('email', $googleUser->getEmail())->first();
 
-        if ($user) {
-            // اگر کاربر با همون ایمیل وجود داشت، google_id رو اضافه کن
-            $user->update([
-                'google_id' => $googleUser->getId(),
-            ]);
-        } else {
-            // کاربر جدید، ثبت‌نام کن
-            $user = User::create([
-                'name' => $googleUser->getName(),
-                'email' => $googleUser->getEmail(),
-                'google_id' => $googleUser->getId(),
-                'password' => bcrypt(Str::random(16)), // رمز تصادفی
-            ]);
-        }
-    }
 
-    Auth::login($user);
 
-    return redirect('/'); // به مسیر دلخواهت تغییرش بده
-});
+Route::get('/auth/google/callback', [AuthController::class, 'gmailCallBack'])->name('login.callBack.gmail');
+
+
 
 
 
 //github
-Route::get('login/github/callback', function () {
-    
-   try {
-        $githubUser = Socialite::driver('github')->user();
-    } catch (\Laravel\Socialite\Two\InvalidStateException $e) {
-        return redirect('/login/github')->with('error', 'مشکلی در ورود با گیت‌هاب پیش آمد. لطفاً دوباره تلاش کنید.');
-    }
-    // بررسی کاربر در دیتابیس
-    $user = User::where('github_id', $githubUser->id)->first();
 
-    if (!$user) {
-        // اگر کاربر وجود ندارد، ایجاد کن
-        $user = User::create([
-            'name' => $githubUser->name ?? $githubUser->nickname,
-            'email' => $githubUser->email,
-            'github_id' => $githubUser->id,
-            // اگر نیاز داری، فیلدهای دیگر رو پر کن
-            'password' => bcrypt(Str::random(24)), // رمز تصادفی چون ورود با GitHub است
-        ]);
-    }
+Route::get('login/github/callback', [AuthController::class, 'githubCallBack'])->name('login.callBack.github');
 
-    // ورود کاربر
-    Auth::login($user, true);
 
-    return redirect('/'); // یا هر جایی که می‌خوای بعد ورود بری
-});
 
 
 

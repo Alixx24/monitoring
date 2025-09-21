@@ -37,8 +37,9 @@
                         <i class="bi bi-github fs-1 float-end"></i>
                     </a>
 
-                       <a href="{{ url('auth/google') }}" class="text-decoration-none gmail-icon">click
-                        <i class="bi bi-gmail fs-1 float-end"></i>
+                    <a href="{{ url('auth/google') }}" class="text-decoration-none">
+                        <i class="bi bi-google fs-1 float-end text-danger me-3"></i>
+                        </i>
                     </a>
 
 
