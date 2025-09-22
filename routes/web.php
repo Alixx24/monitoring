@@ -12,42 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('login/github', function () {
-    
-    return Socialite::driver('github')->redirect();
-});
-
-
-//gmail
-
-Route::get('/auth/google', function () {
-    return Socialite::driver('google')->redirect();
-});
-
-
-
-
-
-
-Route::get('/auth/google/callback', [AuthController::class, 'gmailCallBack'])->name('login.callBack.gmail');
-
-
-
-
-
-//github
-
-Route::get('login/github/callback', [AuthController::class, 'githubCallBack'])->name('login.callBack.github');
-
-
-
-
-
-
-
 
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/document', [HomeController::class, 'document'])->name('home.document.index');
 
 
 //User Dashboard
@@ -75,6 +43,29 @@ Route::get('/verify-email/{token}', [AuthController::class, 'verifyEmail'])->nam
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout.post');
+
+
+
+
+Route::get('login/github', function () {
+    
+    return Socialite::driver('github')->redirect();
+});
+
+
+//gmail
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+
+Route::get('/auth/google/callback', [AuthController::class, 'gmailCallBack'])->name('login.callBack.gmail');
+
+
+//github
+
+Route::get('login/github/callback', [AuthController::class, 'githubCallBack'])->name('login.callBack.github');
 
 
 //panel

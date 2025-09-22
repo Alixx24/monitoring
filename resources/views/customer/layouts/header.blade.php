@@ -1,7 +1,7 @@
 @include('panel.layouts.head-tag')
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-left:27%;">
         <a class="navbar-brand" href="{{ route('home.index') }}">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Enterprise</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Documention</a>
+                    <a class="nav-link" href="{{ route('home.document.index') }}" tabindex="-1" aria-disabled="true">Documention</a>
                 </li>
 
             </ul>
