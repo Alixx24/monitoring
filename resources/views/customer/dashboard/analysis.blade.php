@@ -9,7 +9,7 @@
 
         <div class="bg-light mb-3 p-2">
             <h5>
-                Email: {{ $user->email }}
+                url: {{ $fetchUrls['url'] }} - duration: {{ $fetchUrls['duration_id'] }} - name: {{ $fetchUrls['name'] }}
                 <span class="float-end">Wallet: 0</span>
             </h5>
         </div>
@@ -29,19 +29,6 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($fetchRequest as $item)
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>{{ $item->name }}</td>
-                            <td>{{ $item->duration_id }} Min</td>
-                            <td>{{ $item->url }}</td>
-                            <td>{{ $item->status == 1 ? 'Active' : 'Deactive' }}</td>
-                            <td>
-                            <a class="btn btn-warning"
-                                href="{{ route('dashboard.analysis.link.index', ['linkId' => auth()->user()->id, 'id' => $item->id]) }}">Click!</a></td>
-
-                        </tr>
-                    @endforeach
                 </tbody>
             </table>
         </div>

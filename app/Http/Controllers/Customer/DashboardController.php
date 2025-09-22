@@ -18,7 +18,7 @@ class DashboardController extends Controller
 
         $userId = auth()->user()->id;
         $fetchRequest = RequestModel::where('user_id', $userId)->get();
-        
+
         return view('customer.dashboard.index', compact('user', 'fetchRequest'));
     }
 
@@ -34,13 +34,13 @@ class DashboardController extends Controller
     public function store(RequestModelRequest $reqValid)
     {
         $userId  = auth()->id();
-        $this->createRequest($reqValid,$userId );
+        $this->createRequest($reqValid, $userId);
 
-    return redirect()->back()->with('success', 'Request created successfully');
+        return redirect()->back()->with('success', 'Request created successfully');
     }
 
 
-    public function createRequest(RequestModelRequest $reqValid ,$userId)
+    public function createRequest(RequestModelRequest $reqValid, $userId)
     {
         $validated = $reqValid->validated();
 
@@ -49,11 +49,20 @@ class DashboardController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'duration_id' => $validated['duration_id'],
-            'user_id' =>  $userId ,
+            'user_id' =>  $userId,
             'status' => 1,
             'last_visited' => null,
         ]);
 
         return $requestModel;
+    }
+
+    public function analysis($id, $linkId)
+    {
+        $user = User::find($id);
+        $fetchUrls = RequestModel::where('user_id', $id)->where('id', $linkId)->first();
+
+       
+        return view('customer.dashboard.analysis', compact('user','fetchUrls'));
     }
 }

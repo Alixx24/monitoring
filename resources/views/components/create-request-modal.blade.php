@@ -2,7 +2,7 @@
 
 <div class="modal fade" id="createReqModal" tabindex="-1" aria-labelledby="createReqModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content mt-of-reg">
       <div class="modal-header">
         <h5 class="modal-title" id="createReqModalLabel">Request</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

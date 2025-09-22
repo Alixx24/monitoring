@@ -54,7 +54,7 @@
             </ul>
 
             @auth
-                Welcom {{ auth()->user()->email }}
+                 {{ auth()->user()->email }}
 
                 <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
                     @csrf

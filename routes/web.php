@@ -21,6 +21,7 @@ Route::get('/document', [HomeController::class, 'document'])->name('home.documen
 //User Dashboard
 Route::prefix('/user/dashboard')->group(function () {
 Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/user/dashboard/analysis/{linkId}/{id}', [DashboardController::class, 'analysis'])->name('dashboard.analysis.link.index');
 
   Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
 });
