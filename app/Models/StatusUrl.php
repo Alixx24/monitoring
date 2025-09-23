@@ -15,4 +15,9 @@ class StatusUrl extends Model
         'status',
         'status_code',
     ];
+
+    public function request()
+    {
+      return $this->belongsTo(RequestModel::class, 'request_id');
+    }
 }

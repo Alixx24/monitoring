@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RequestModelRequest;
 use App\Models\RequestModel;
+use App\Models\StatusUrl;
 
 class DashboardController extends Controller
 {
@@ -62,7 +63,9 @@ class DashboardController extends Controller
         $user = User::find($id);
         $fetchUrls = RequestModel::where('user_id', $id)->where('id', $linkId)->first();
 
+
+        $fetchRequestStatus = StatusUrl::with('request')->where('request_id',$linkId)->get();
        
-        return view('customer.dashboard.analysis', compact('user','fetchUrls'));
+        return view('customer.dashboard.analysis', compact('user','fetchUrls','fetchRequestStatus'));
     }
 }

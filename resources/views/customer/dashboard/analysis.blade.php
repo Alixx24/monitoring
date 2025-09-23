@@ -9,7 +9,8 @@
 
         <div class="bg-light mb-3 p-2">
             <h5>
-                url: {{ $fetchUrls['url'] }} - duration: {{ $fetchUrls['duration_id'] }} - name: {{ $fetchUrls['name'] }}
+                url: {{ $fetchUrls['url'] }} - duration: {{ $fetchUrls['duration_id'] }} - name: {{ $fetchUrls['name'] }} -
+                last visited: {{ $fetchUrls['last_visited'] }}
                 <span class="float-end">Wallet: 0</span>
             </h5>
         </div>
@@ -19,16 +20,40 @@
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Duration</th>
-                        <th scope="col">Url</th>
+                        <th scope="col">request_id</th>
+                        <th scope="col">to_email</th>
+                        <th scope="col">description</th>
+                        <th scope="col">status_code</th>
+                        <th scope="col">at</th>
+
+
                         <th scope="col">Status</th>
-                                                <th scope="col">Analysis</th>
+                        <th scope="col">Analysis</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
+                    @foreach ($fetchRequestStatus as $item)
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{ $item->id }}  - {{ $item->request->url }}</td>
+                            <td>{{ $item->to_email }} Min</td>
+                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->status_code }}</td>
+
+                            <td>{{ $item->created_at }}</td>
+
+                            <td>{{ $item->status == 1 ? 'Active' : 'Deactive' }}</td>
+
+
+                            <td>
+                                <a class="btn btn-warning"
+                                    href="{{ route('dashboard.analysis.link.index', ['linkId' => auth()->user()->id, 'id' => $item->id]) }}">Click!</a>
+                            </td>
+
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
