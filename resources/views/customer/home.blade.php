@@ -12,7 +12,37 @@
             /* تصویر عرض والد را بگیرد */
         }
     </style>
-    <section >
+
+    <style>
+        .form-control-home {
+            box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
+            border-color: #007bff;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-control-home:focus {
+            box-shadow: 0 0 18px 5px rgba(0, 123, 255, 1);
+            border-color: #0056b3;
+        }
+    </style>
+    <style>
+        .card-price {
+            width: 18rem;
+            /* عرض ثابت برای همه کارت‌ها */
+        }
+
+        .card.middle {
+            height: 13.75rem;
+            /* ارتفاع بیشتر برای کارت وسطی */
+        }
+
+        .text-height-desc{
+line-height:1.5;
+        }
+    </style>
+
+    <section>
         <div class="container">
             <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -36,30 +66,22 @@
                 </button>
             </div>
 
+            <div class="container text-light">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-light text-cente mt-5">
 
-            <p class="d-inline-flex gap-1 mt-5 mb-5"> <a class="btn btn-dark" data-bs-toggle="collapse"
-                    href="#multiCollapseExample1" role="button" aria-expanded="false"
-                    aria-controls="multiCollapseExample1">Uptime monitoring <span class="bi bi-arrow-down"></span></a>
-                <button class="btn btn-dark" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Log
-                    management <span class="bi bi-arrow-down"></span></button> </p>
-            <div class="row">
-                <div class="col mb-3">
-                    <div class="collapse multi-collapse" id="multiCollapseExample1">
-                        <div class="card card-body">
-                            <h4>Uptime monitoring</h4> Our Uptime Monitoring service ensures your website is always online
-                            and accessible. We continuously check your site’s status and immediately notify you if any
-                            downtime occurs, helping you maintain a reliable online presence.
+                        <div class="input-group mb-5">
+                            <input type="text" class="form-control form-control-home "
+                                placeholder="Get updates & discounts" aria-label="Recipient's username"
+                                aria-describedby="basic-addon2" />
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary ms-3 bg-light text-dark"
+                                    type="button">Submit</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col mb-3">
-                    <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card card-body">
-                            <h4>Log Management</h4> Our Log Management system collects, stores, and analyzes your website’s
-                            logs to help you track activities, troubleshoot issues, and improve security. Access detailed
-                            reports anytime to stay informed about your site’s performance.
-                        </div>
+
+                        <h4>AI-native platform for on-call and incident response with effortless monitoring, status pages,
+                            tracing, infrastructure monitoring and log management.</h3>
                     </div>
                 </div>
             </div>
@@ -68,19 +90,8 @@
 
 
 
-            <style>
-                .card-price {
-                    width: 18rem;
-                    /* عرض ثابت برای همه کارت‌ها */
-                }
-
-                .card.middle {
-                    height: 13.75rem;
-                    /* ارتفاع بیشتر برای کارت وسطی */
-                }
-            </style>
-
-            <div class="d-flex justify-content-center align-items-end gap-3">
+            {{-- 3 cards --}}
+            <div class="d-flex justify-content-center align-items-end gap-3 mt-5">
 
                 <div class="card card-price text-white bg-dark mb-3">
                     <div class="card-header">Limited</div>
@@ -109,8 +120,64 @@
                 </div>
             </div>
 
+            {{-- to button --}}
+
+            <div class="row mt-5 mb-5">
+                <div class="col-6 d-flex justify-content-center">
+                    <a class="btn btn-dark w-100" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+                        aria-expanded="false" aria-controls="multiCollapseExample1">
+                        Uptime monitoring <span class="bi bi-arrow-down"></span>
+                    </a>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <button class="btn btn-dark w-100" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                        Log management <span class="bi bi-arrow-down"></span>
+                    </button>
+                </div>
+            </div>
 
 
+
+
+            <div class="row">
+                <div class="col mb-3">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card card-body">
+                            <h4>Uptime monitoring</h4> Our Uptime Monitoring service ensures your website is always online
+                            and accessible. We continuously check your site’s status and immediately notify you if any
+                            downtime occurs, helping you maintain a reliable online presence.
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-3">
+                    <div class="collapse multi-collapse" id="multiCollapseExample2">
+                        <div class="card card-body">
+                            <h4>Log Management</h4> Our Log Management system collects, stores, and analyzes your website’s
+                            logs to help you track activities, troubleshoot issues, and improve security. Access detailed
+                            reports anytime to stay informed about your site’s performance.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- text dont worry --}}
+            <div class="container text-light">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-light text-cente mt-5">
+
+
+                       <h4 class="text-center text-light fw-semibold px-4 text-height-desc" >
+  Our system continuously monitors your website’s links in real-time to ensure they are always active and accessible.  
+  Should any link become inactive, you’ll receive instant alerts—allowing you to quickly address issues before they affect your visitors.  
+  With a user-friendly dashboard and customizable settings, managing your site’s link health has never been easier.  
+  Keep your website seamless, reliable, and professional with effortless link monitoring.
+</h4>
+
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -173,7 +240,7 @@
             </div>
         </div>
 
-    
+
 
     </section>
 @endsection
