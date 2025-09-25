@@ -44,7 +44,7 @@ line-height:1.5;
 
     <section>
         <div class="container">
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ asset('customer/banner/images/1.webp') }}" class="d-block w-100" alt="...">
@@ -179,20 +179,49 @@ line-height:1.5;
                 </div>
             </div>
 
+<style>
+  .card-body {
+    text-align: right;
+  }
+  .card-img-top {
+    object-fit: cover;
+    height: 160px;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: none;
+    background-color: rgb(0, 0, 0);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  }
 
-  <style>
-    .card-body { text-align: right; }
-    .card-img-top { object-fit: cover; height: 160px; }
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      filter: none;
-      background-color: white;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-    }
-  </style>
+  /* تنظیم موقعیت اسلایدر */
+  #desktopCarousel {
+    position: relative;
+    padding: 0 60px; /* فاصله داخلی برای جا دادن دکمه‌ها */
+  }
+
+  /* موقعیت دکمه‌ها بیرون از اسلایدر */
+  #desktopCarousel .carousel-control-prev,
+  #desktopCarousel .carousel-control-next {
+    width: 3rem;
+    height: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+
+  #desktopCarousel .carousel-control-prev {
+    left: -60px; /* فاصله دکمه قبلی از اسلایدر */
+  }
+
+  #desktopCarousel .carousel-control-next {
+    right: -60px; /* فاصله دکمه بعدی از اسلایدر */
+  }
+</style>
+
 </head>
 <body>
 
@@ -200,7 +229,7 @@ line-height:1.5;
   <h3 class="mb-4 text-end">اسلایدر کارت‌ها</h3>
 
   <!-- نسخه دسکتاپ: هر اسلاید شامل ۳ کارت -->
-  <div id="desktopCarousel" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+  <div id="desktopCarousel" class="carousel slide d-none d-md-block m-5" data-bs-ride="carousel">
     <div class="carousel-inner">
 
       <!-- اسلاید ۱ -->
