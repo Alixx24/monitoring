@@ -180,6 +180,164 @@ line-height:1.5;
             </div>
 
 
+  <style>
+    .card-body { text-align: right; }
+    .card-img-top { object-fit: cover; height: 160px; }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: none;
+      background-color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-4">
+  <h3 class="mb-4 text-end">اسلایدر کارت‌ها</h3>
+
+  <!-- نسخه دسکتاپ: هر اسلاید شامل ۳ کارت -->
+  <div id="desktopCarousel" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- اسلاید ۱ -->
+      <div class="carousel-item active">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/1/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۱</h5>
+                <p class="card-text small">توضیح مختصر.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/2/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۲</h5>
+                <p class="card-text small">توضیح کارت دوم.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/3/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۳</h5>
+                <p class="card-text small">توضیح کارت سوم.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- اسلاید ۲ -->
+      <div class="carousel-item">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/4/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۴</h5>
+                <p class="card-text small">توضیح کارت چهارم.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/5/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۵</h5>
+                <p class="card-text small">توضیح کارت پنجم.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <img src="https://picsum.photos/seed/6/800/400" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">کارت ۶</h5>
+                <p class="card-text small">توضیح کارت ششم.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- کنترل‌ها -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#desktopCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">قبلی</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#desktopCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">بعدی</span>
+    </button>
+  </div>
+
+  <!-- نسخه موبایل: هر اسلاید فقط یک کارت -->
+  <div id="mobileCarousel" class="carousel slide d-block d-md-none mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- کارت ۱ -->
+      <div class="carousel-item active">
+        <div class="card shadow-sm">
+          <img src="https://picsum.photos/seed/1/800/400" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">کارت ۱</h5>
+            <p class="card-text small">توضیح کارت.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- کارت ۲ -->
+      <div class="carousel-item">
+        <div class="card shadow-sm">
+          <img src="https://picsum.photos/seed/2/800/400" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">کارت ۲</h5>
+            <p class="card-text small">توضیح دوم.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- کارت ۳ -->
+      <div class="carousel-item">
+        <div class="card shadow-sm">
+          <img src="https://picsum.photos/seed/3/800/400" class="card-img-top" alt="">
+          <div class="card-body">
+            <h5 class="card-title">کارت ۳</h5>
+            <p class="card-text small">توضیح سوم.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ادامه کارت‌ها در موبایل... -->
+    </div>
+
+    <!-- کنترل‌ها موبایل -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#mobileCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">قبلی</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mobileCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">بعدی</span>
+    </button>
+  </div>
+</div>
+
+
+
+
+
 
 
             <div class="accordion mt-5 mb-5" id="accordionExample">
