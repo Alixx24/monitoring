@@ -20,10 +20,12 @@ Route::get('/document', [HomeController::class, 'document'])->name('home.documen
 
 //User Dashboard
 Route::prefix('/user/dashboard')->group(function () {
-Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/user/dashboard/analysis/{linkId}/{id}', [DashboardController::class, 'analysis'])->name('dashboard.analysis.link.index');
+    Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/user/dashboard/analysis/{linkId}/{id}', [DashboardController::class, 'analysis'])->name('dashboard.analysis.link.index');
 
-  Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
+    Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
+Route::delete('/analysis/delete/{linkId}/{id}', [DashboardController::class, 'delete'])->name('dashboard.request.delete');
+
 });
 
 
@@ -49,7 +51,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout.post');
 
 
 Route::get('login/github', function () {
-    
+
     return Socialite::driver('github')->redirect();
 });
 

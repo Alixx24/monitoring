@@ -64,8 +64,22 @@ class DashboardController extends Controller
         $fetchUrls = RequestModel::where('user_id', $id)->where('id', $linkId)->first();
 
 
-        $fetchRequestStatus = StatusUrl::with('request')->where('request_id',$linkId)->get();
-       
-        return view('customer.dashboard.analysis', compact('user','fetchUrls','fetchRequestStatus'));
+        $fetchRequestStatus = StatusUrl::with('request')->where('request_id', $linkId)->get();
+
+        return view('customer.dashboard.analysis', compact('user', 'fetchUrls', 'fetchRequestStatus'));
+    }
+    public function delete($linkId, $id)
+    {
+         $this->deleteAction($linkId, $id);
+         return redirect()->back()->with('success', 'Request created successfully');
+
+    }
+
+
+    public function deleteAction($linkId, $id)
+    {
+
+        $findRequest = RequestModel::where('id', $linkId)->first();
+        $findRequest->delete();
     }
 }

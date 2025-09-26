@@ -36,10 +36,18 @@
                             <td>{{ $item->duration_id }} Min</td>
                             <td>{{ $item->url }}</td>
                             <td>{{ $item->status == 1 ? 'Active' : 'Deactive' }}</td>
-                            <td>
+                            <td class="d-flex align-items-center">
                             <a class="btn btn-warning"
-                                href="{{ route('dashboard.analysis.link.index', ['linkId' => auth()->user()->id, 'id' => $item->id]) }}">Click!</a></td>
+                                href="{{ route('dashboard.analysis.link.index', ['linkId' => auth()->user()->id, 'id' => $item->id]) }}">Click!</a>
+                            
+                             <form method="POST" action="{{ route('dashboard.request.delete',  ['linkId' =>  $item->id, 'id' => auth()->user()->id]) }}" >
+                                   @csrf
+                                   @method('DELETE')
+                                    <button type="submit" class="btn btn-danger ms-2">Delete</button>
+                                </form>
+                            </td>
 
+                               
                         </tr>
                     @endforeach
                 </tbody>
