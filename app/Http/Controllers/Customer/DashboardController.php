@@ -70,9 +70,8 @@ class DashboardController extends Controller
     }
     public function delete($linkId, $id)
     {
-         $this->deleteAction($linkId, $id);
-         return redirect()->back()->with('success', 'Request created successfully');
-
+        $this->deleteAction($linkId, $id);
+        return redirect()->back()->with('success', 'Request created successfully');
     }
 
 
@@ -81,5 +80,15 @@ class DashboardController extends Controller
 
         $findRequest = RequestModel::where('id', $linkId)->first();
         $findRequest->delete();
+    }
+
+
+    public function updateStatus(Request $request, $id)
+    {
+        $item = RequestModel::findOrFail($id);
+        $item->status = $request->status;
+        $item->save();
+
+        return response()->json(['success' => true]);
     }
 }
