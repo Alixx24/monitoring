@@ -25,8 +25,7 @@ Route::prefix('/user/dashboard')->group(function () {
 
     Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
     Route::delete('/analysis/delete/{linkId}/{id}', [DashboardController::class, 'delete'])->name('dashboard.request.delete');
-Route::post('/update-status/{id}', [DashboardController::class, 'updateStatus']);
-
+    Route::post('/update-status/{id}', [DashboardController::class, 'updateStatus']);
 });
 
 
