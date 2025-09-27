@@ -436,26 +436,29 @@
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                               🆓 Our Subscription Model
+                                🆓 Our Subscription Model
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body  bg-dark text-light">
-                              <p>
-        At this time, all monitoring services we offer are <strong>completely free</strong> and come with 
-        <strong>no usage limits</strong>.
-    </p>
-    <p>
-        You can add unlimited links, set your preferred check intervals, and receive real-time email alerts — 
-        all without any cost or subscription requirements.
-    </p>
-    <p>
-        We believe that basic uptime monitoring should be accessible to everyone — whether you're a developer, 
-        a startup, or just running a personal project.
-    </p>
-    <p class="mb-0">
-        🔒 <em>No hidden fees, no trial periods, and no credit card required.</em>
-    </p>
+                                <p>
+                                    At this time, all monitoring services we offer are <strong>completely free</strong> and
+                                    come with
+                                    <strong>no usage limits</strong>.
+                                </p>
+                                <p>
+                                    You can add unlimited links, set your preferred check intervals, and receive real-time
+                                    email alerts —
+                                    all without any cost or subscription requirements.
+                                </p>
+                                <p>
+                                    We believe that basic uptime monitoring should be accessible to everyone — whether
+                                    you're a developer,
+                                    a startup, or just running a personal project.
+                                </p>
+                                <p class="mb-0">
+                                    🔒 <em>No hidden fees, no trial periods, and no credit card required.</em>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -468,25 +471,28 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body  bg-dark text-light">
-                               <p>
-        Currently, all monitoring alerts are sent via <strong>email</strong> to the address you provide 
-        when registering your links.
-    </p>
-    <p>
-        We're actively working on expanding our notification options. In the near future, you'll be able to 
-        choose to receive alerts through:
-        <ul>
-            <li>📱 SMS (text messages)</li>
-            <li>💬 Telegram</li>
-            <li>🟢 WhatsApp</li>
-        </ul>
-    </p>
-    <p>
-        These options will be fully customizable — so you'll be able to choose how and where you want to be notified.
-    </p>
-    <p class="mb-0">
-        🔔 <em>Email notifications are active and reliable. More channels coming soon!</em>
-    </p>
+                                <p>
+                                    Currently, all monitoring alerts are sent via <strong>email</strong> to the address you
+                                    provide
+                                    when registering your links.
+                                </p>
+                                <p>
+                                    We're actively working on expanding our notification options. In the near future, you'll
+                                    be able to
+                                    choose to receive alerts through:
+                                <ul>
+                                    <li>📱 SMS (text messages)</li>
+                                    <li>💬 Telegram</li>
+                                    <li>🟢 WhatsApp</li>
+                                </ul>
+                                </p>
+                                <p>
+                                    These options will be fully customizable — so you'll be able to choose how and where you
+                                    want to be notified.
+                                </p>
+                                <p class="mb-0">
+                                    🔔 <em>Email notifications are active and reliable. More channels coming soon!</em>
+                                </p>
                             </div>
                         </div>
                     </div>
