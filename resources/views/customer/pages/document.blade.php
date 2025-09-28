@@ -289,7 +289,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script>
-            // اسکریپت برای فعال کردن لینک منو بر اساس اسکرول
+         
             document.addEventListener('DOMContentLoaded', () => {
                 const sections = document.querySelectorAll('main section');
                 const navLinks = document.querySelectorAll('#sidebar a, .offcanvas-body a');
@@ -298,7 +298,7 @@
                     let scrollPos = window.scrollY || window.pageYOffset;
 
                     sections.forEach((section) => {
-                        const top = section.offsetTop - 90; // 90 برای جبران ارتفاع ثابت و فاصله بالا
+                        const top = section.offsetTop - 90; 
                         const bottom = top + section.offsetHeight;
 
                         if (scrollPos >= top && scrollPos < bottom) {
@@ -313,7 +313,7 @@
                 }
 
                 window.addEventListener('scroll', activateLink);
-                activateLink(); // اجرا در بارگذاری صفحه
+                activateLink(); 
             });
         </script>
 
