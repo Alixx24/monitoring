@@ -85,7 +85,7 @@ class ProcessRequests extends Command
                     SendUrlStatusEmailJob::dispatch(
                         $request->email,
                         $request->url,
-                        'خطا در اتصال'
+                        'Connection Error'
                     );
                     $this->info("Dispatched failure email job to {$request->email}");
                 }

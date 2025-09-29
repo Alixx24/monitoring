@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\RequestModel;
-use App\Models\StatusUrl; 
+use App\Models\StatusUrl;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -17,10 +17,10 @@ class ProcessRequestsFiveMin extends Command
 
     public function handle()
     {
-            $this->info('ProcessRequestsFiveMin command is running');
+        $this->info('ProcessRequestsFiveMin command is running');
 
         $now = now();
- $requests = RequestModel::where('status', 1)
+        $requests = RequestModel::where('status', 1)
             ->where('duration_id', 4)
             ->get();
         foreach ($requests as $request) {
@@ -54,7 +54,6 @@ class ProcessRequestsFiveMin extends Command
 
                 $this->info("Request processed for URL {$request->url}. Status code: {$response->status()}");
                 Log::info("Request sent to {$request->url} at {$now}. Response status: {$response->status()} for {$request->duration} minute(s).");
-
             } catch (\Exception $e) {
                 Log::error("Failed to send request to {$request->url}: " . $e->getMessage());
                 $this->error("Failed to send request to {$request->url}: " . $e->getMessage());
@@ -64,7 +63,7 @@ class ProcessRequestsFiveMin extends Command
                     SendUrlStatusEmailJob::dispatch(
                         $request->email,
                         $request->url,
-                        'خطا در اتصال'
+                        'Connection Error'
                     );
                     $this->info("Dispatched failure email job to {$request->email}");
                 }
