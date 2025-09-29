@@ -3,43 +3,14 @@
 
 @section('content')
     <style>
-        #carouselExample img {
-            height: 300px;
-            /* ارتفاع ثابت */
-            object-fit: cover;
-            /* تصاویر به خوبی توی باکس جا می‌گیرن بدون کشیدگی */
-            width: 100%;
-            /* تصویر عرض والد را بگیرد */
-        }
+      
     </style>
 
     <style>
-        .form-control-home {
-            box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
-            border-color: #007bff;
-            outline: none;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .form-control-home:focus {
-            box-shadow: 0 0 18px 5px rgba(0, 123, 255, 1);
-            border-color: #0056b3;
-        }
+       
     </style>
     <style>
-        .card-price {
-            width: 18rem;
-            /* عرض ثابت برای همه کارت‌ها */
-        }
-
-        .card.middle {
-            height: 13.75rem;
-            /* ارتفاع بیشتر برای کارت وسطی */
-        }
-
-        .text-height-desc {
-            line-height: 1.5;
-        }
+   
     </style>
 
     <section>

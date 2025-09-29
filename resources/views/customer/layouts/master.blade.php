@@ -20,6 +20,7 @@
     <style>
         .bg-of-body {
             background-color: rgb(26, 29, 56);
+            margin: 0;
         }
 
         html,
@@ -51,28 +52,90 @@
 
         }
 
-         .mt-of-login{
+        .mt-of-login {
             margin-top: 35%;
         }
 
-        .mt-of-reg{
+        .mt-of-reg {
             margin-top: 25%;
+        }
+
+        @media (min-width:992px) {
+
+
+            .custom-margin-left {
+                margin-left: 27%;
+            }
+        }
+
+        .ml-mobile {
+            margin-left: 95px !important;
+
+        }
+
+        .ml-mbobile-sign {
+            margin-left: 60px;
+        }
+
+
+        .card-price {
+            width: 18rem;
+           
+        }
+
+        .card.middle {
+            height: 13.75rem;
+      
+        }
+
+        .text-height-desc {
+            line-height: 1.5;
+        }
+
+        .form-control-home {
+            box-shadow: 0 0 15px 4px rgba(0, 123, 255, 0.8);
+            border-color: #007bff;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .form-control-home:focus {
+            box-shadow: 0 0 18px 5px rgba(0, 123, 255, 1);
+            border-color: #0056b3;
+        }
+
+        #carouselExample img {
+            height: 300px;
+            /* ارتفاع ثابت */
+            object-fit: cover;
+         
+            width: 100%;
+            
+        }
+
+        .style-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
     </style>
 </head>
-<body class="bg-of-body" style="margin:0;">
 
-  <div id="particles-js"
-       style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+<body class="bg-of-body">
 
-  @include('customer.layouts.header')
+    <div id="particles-js" class="style-particles" style=""></div>
+
+    @include('customer.layouts.header')
 
 
-  <main class="hero-section">
-    @yield('content')
-  </main>
+    <main class="hero-section">
+        @yield('content')
+    </main>
 
-  @include('customer.layouts.footer')
+    @include('customer.layouts.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

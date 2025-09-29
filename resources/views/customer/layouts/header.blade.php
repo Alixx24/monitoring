@@ -1,26 +1,10 @@
 @include('panel.layouts.head-tag')
 
-<style>
-    @media (min-width:992px) {
 
-
-        .custom-margin-left {
-            margin-left: 27%;
-        }
-    }
-
-    .ml-mobile{
-margin-left: 95px !important;
-
-    }
-.ml-mbobile-sign{
-    margin-left: 60px;
-}
-</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
     <div class="container-fluid custom-margin-left">
         <a class="navbar-brand" href="{{ route('home.index') }}">Home</a>
-        <div class="d-block d-md-none ml-mbobile-sign" style="margin-left: 60px;">
+        <div class="d-block d-md-none ml-mbobile-sign ">
 
             @auth
 
