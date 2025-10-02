@@ -13,21 +13,19 @@
                     @csrf
 
                     <a href="{{ route('dashboard.index', auth()->user()->id) }}"
-                        class="btn d-inline btn-outline-success ms-2 ml-mobile" >Dashboard</a>
+                        class="btn d-inline btn-outline-success ms-2 ml-mobile">Dashboard</a>
 
                 </form>
             @endauth
 
             @if (auth()->guest())
                 <form class="d-flex">
-                    <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
-                        data-bs-target="#loginModal">
-                        Login
-                    </button>
 
 
-                    <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
-                        data-bs-target="#registerModal">Sign up</a>
+<button type="button" data-bs-toggle="modal" data-bs-target="#loginMobileModal" class="btn border-0 p-0">
+  <i class="fs-1 bi bi-person"></i>
+</button>
+
                 </form>
             @endif
         </div>
@@ -84,35 +82,35 @@
                 </li>
 
             </ul>
-<div  class="d-none d-md-block">
- @auth
-                {{ auth()->user()->email }}
+            <div class="d-none d-md-block">
+                @auth
+                    {{ auth()->user()->email }}
 
-                <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-danger ms-2">
-                        Log out
-                    </button>
-                    <a href="{{ route('dashboard.index', auth()->user()->id) }}"
-                        class="btn d-inline btn-outline-success ms-2">Dashboard</a>
+                    <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger ms-2">
+                            Log out
+                        </button>
+                        <a href="{{ route('dashboard.index', auth()->user()->id) }}"
+                            class="btn d-inline btn-outline-success ms-2">Dashboard</a>
 
-                </form>
-            @endauth
+                    </form>
+                @endauth
 
-            @if (auth()->guest())
-                <form class="d-flex">
-                    <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
-                        data-bs-target="#loginModal">
-                        Login
-                    </button>
+                @if (auth()->guest())
+                    <form class="d-flex">
+                        <button type="button" class="btn btn-outline-success me-2" data-bs-toggle="modal"
+                            data-bs-target="#loginModal">
+                            Login
+                        </button>
 
 
-                    <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
-                        data-bs-target="#registerModal">Sign up</a>
-                </form>
-            @endif
-</div>
-           
+                        <a class="btn btn-outline-primary me-2" type="submit" data-bs-toggle="modal"
+                            data-bs-target="#registerModal">Sign up</a>
+                    </form>
+                @endif
+            </div>
+
         </div>
     </div>
 </nav>
@@ -121,3 +119,6 @@
 
 <x-login-modal />
 <x-register-modal />
+
+{{-- mobile --}}
+<x-register-mobile-modal />
