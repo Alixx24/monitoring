@@ -5,6 +5,7 @@ use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Panel\DurationController;
 use App\Http\Controllers\Panel\RequestController;
+use App\Http\Middleware\CheckAdmin;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -73,22 +74,23 @@ Route::get('login/github/callback', [AuthController::class, 'githubCallBack'])->
 
 //panel
 
-Route::prefix('/panel/requests')->group(function () {
+Route::prefix('/panel/requests')->middleware('admin')->group(function () {
     Route::get('/', [RequestController::class, 'index'])->name('panel.request.index');
     Route::get('/create', [RequestController::class, 'create'])->name('panel.request.create');
     Route::get('/edit/{id}', [RequestController::class, 'edit'])->name('panel.request.edit');
     Route::put('/update/{id}', [RequestController::class, 'update'])->name('panel.request.update');
 
     Route::post('/store', [RequestController::class, 'store'])->name('panel.request.store');
-    Route::post('/delete/{id}', [RequestController::class, 'delete'])->name('panel.request.delete');
-});
+    Route::delete('/delete/{id}', [RequestController::class, 'delete'])->name('panel.request.delete');
+})->middleware(CheckAdmin::class);
 
-Route::prefix('/panel/duration')->group(function () {
+Route::prefix('/panel/duration')->middleware('admin')->group(function () {
     Route::get('/', [DurationController::class, 'index'])->name('panel.duration.index');
     Route::get('/create', [DurationController::class, 'create'])->name('panel.duration.create');
-    Route::get('/edit/{id}', [RequestController::class, 'edit'])->name('panel.request.edit');
-    Route::put('/update/{id}', [RequestController::class, 'update'])->name('panel.request.update');
-
     Route::post('/store', [DurationController::class, 'store'])->name('panel.duration.store');
-    Route::post('/delete/{id}', [DurationController::class, 'delete'])->name('panel.duration.delete');
+    Route::get('/edit/{id}', [DurationController::class, 'edit'])->name('panel.duration.edit');
+    Route::put('/update/{id}', [DurationController::class, 'update'])->name('panel.duration.update');
+    Route::delete('/delete/{id}', [DurationController::class, 'delete'])->name('panel.duration.delete');
 });
+
+
