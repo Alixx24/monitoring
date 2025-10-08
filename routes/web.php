@@ -19,6 +19,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/document', [HomeController::class, 'document'])->name('home.document.index');
 
 
+//view section
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+
+
 //User Dashboard
 Route::prefix('/user/dashboard')->group(function () {
     Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');

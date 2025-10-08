@@ -122,6 +122,8 @@
             z-index: -1;
         }
     </style>
+
+
 </head>
 
 <body class="bg-of-body">
@@ -139,41 +141,49 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script></script>
-
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle"
-                },
-                "size": {
-                    "value": 3
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2
-                }
-            },
-            "interactivity": {
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    }
-                }
+    
+<script>
+  window.addEventListener('load', function () {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
+    script.onload = function () {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 60
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle"
+          },
+          "opacity": {
+            "value": 0.7,
+            "random": false
+          },
+          "size": {
+            "value": 2
+          },
+          "move": {
+            "enable": true,
+            "speed": 1.5
+          }
+        },
+        "interactivity": {
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
             }
-        });
-    </script>
+          }
+        }
+      });
+    };
+    document.body.appendChild(script);
+  });
+</script>
+
 </body>
 
 </html>
