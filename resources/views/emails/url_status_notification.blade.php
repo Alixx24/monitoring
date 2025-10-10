@@ -50,33 +50,36 @@
 
 <body style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
     <section style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
+      <div style="text-align: center; margin-top: 10px; white-space: nowrap;">
+                <a href="{{ route('home.index') }}"
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    Home
+                </a>
+                <a href="{{ route('home.document.index') }}"
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    Document
+                </a>
+                <a href="#"
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    Contact Us
+                </a>
+            </div>
 
         <div style="color: #333333; font-size: 16px; line-height: 1.6;">
 
             <!-- Buttons Row -->
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="{{ route('home.index') }}"
-                    style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 0 5px;">
-                    Home
-                </a>
-                <a href="{{ route('home.document.index') }}"
-                    style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 0 5px;">
-                    Document
-                </a>
-                <a href="#"
-                    style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 0 5px;">
-                    Contact Us
-                </a>
-            </div>
+      
+            <hr>
             <p>Hello,</p>
             <p>The status of the link <strong>{{ $url }}</strong> is <strong>{{ $statusCode }}</strong>.</p>
             <p>Please check it.</p>
 
-<!-- Footer -->
+            <!-- Footer -->
 
-<div style="text-align: center; font-size: 14px; color: #999999; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
-    © 2025 <a href="https://alixdev.ir" style="color: #999999; text-decoration: none;">alixdev.ir</a>
-</div>
+            <div
+                style="text-align: center; font-size: 14px; color: #999999; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+                © 2025 <a href="https://alixdev.ir" style="color: #999999; text-decoration: none;">alixdev.ir</a>
+            </div>
 
         </div>
 

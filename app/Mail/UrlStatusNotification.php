@@ -3,11 +3,11 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;  // اضافه کن این خط
+use Illuminate\Contracts\Queue\ShouldQueue;  
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class UrlStatusNotification extends Mailable implements ShouldQueue  // اینترفیس را اضافه کن
+class UrlStatusNotification extends Mailable implements ShouldQueue  
 {
    use Queueable, SerializesModels;
 
@@ -22,7 +22,7 @@ class UrlStatusNotification extends Mailable implements ShouldQueue  // اینت
 
   public function build()
   {
-      return $this->subject('وضعیت نامناسب لینک')
+      return $this->subject('Notification of Link Issue')
                   ->view('emails.url_status_notification')
                   ->with([
                       'url' => $this->url,
