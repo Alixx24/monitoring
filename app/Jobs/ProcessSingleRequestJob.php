@@ -11,6 +11,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UrlStatusNotification;
 
 class ProcessSingleRequestJob implements ShouldQueue
 {
@@ -23,30 +26,42 @@ class ProcessSingleRequestJob implements ShouldQueue
         $this->request = $request;
     }
 
-    public function handle()
-    {
-        $now = now();
 
-        if (!$this->request->url) {
-            Log::warning("Request ID {$this->request->id} has no URL. Skipped.");
-            return;
-        }
+public function handle()
+{
+    $now = now();
 
-        try {
-            $response = Http::get($this->request->url);
-            $this->request->update(['last_visited' => $now]);
-
-            StatusUrl::create([
-                'request_id'  => $this->request->id,
-                'to_email'    => $this->request->email ?? null,
-                'description' => 'Request sent successfully',
-                'status'      => $response->successful() ? 1 : 0,
-                'status_code' => $response->status(),
-            ]);
-
-            Log::info("Request sent to {$this->request->url} at {$now}. Response status: {$response->status()}");
-        } catch (\Exception $e) {
-            Log::error("Failed to send request to {$this->request->url}: " . $e->getMessage());
-        }
+    if (!$this->request->url) {
+        Log::warning("Request ID {$this->request->id} has no URL. Skipped.");
+        return;
     }
+
+    try {
+        $response = Http::timeout(6)->get($this->request->url); 
+
+        $this->request->update(['last_visited' => $now]);
+
+        StatusUrl::create([
+            'request_id'  => $this->request->id,
+            'to_email'    => $this->request->email ?? null,
+            'description' => 'Request sent successfully',
+            'status'      => $response->successful() ? 1 : 0,
+            'status_code' => $response->status(),
+        ]);
+
+        Log::info("Request sent to {$this->request->url} at {$now}. Response status: {$response->status()}");
+
+        if (!$response->successful()) {
+            // ارسال ایمیل داخل صف
+            if ($this->request->email) {
+                Mail::to($this->request->email)
+                    ->queue(new UrlStatusNotification($this->request->url, $response->status()));
+            }
+        }
+    } catch (\Exception $e) {
+        Log::error("Failed to send request to {$this->request->url}: " . $e->getMessage());
+    }
+}
+
+
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use App\Jobs\SendUrlStatusEmailJob;
 use App\Jobs\ProcessSingleRequestJob;
+use Illuminate\Support\Facades\Cache;
+
 class ProcessRequestsFiveMin extends Command
 {
     protected $signature = 'requests:process-5-min';
@@ -20,9 +22,11 @@ public function handle()
 {
     $this->info('ProcessRequestsFiveMin command is running');
 
-    $requests = RequestModel::where('status', 1)
-        ->where('duration_id', 4)
-        ->get();
+    $requests = Cache::remember('requests_status_1_duration_4', 60, function () {
+        return RequestModel::where('status', 1)
+            ->where('duration_id', 2)
+            ->get();
+    });
 
     foreach ($requests as $request) {
         ProcessSingleRequestJob::dispatch($request);
