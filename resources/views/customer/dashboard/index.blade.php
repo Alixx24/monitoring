@@ -9,8 +9,8 @@
 
         <div class="bg-light mb-3 p-2">
             <h5>
-                Email: {{ $user->email }}
-                <span class="float-end">Wallet: 0</span>
+             {{ $user->email }}
+               
             </h5>
         </div>
 

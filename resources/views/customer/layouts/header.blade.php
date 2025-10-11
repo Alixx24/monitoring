@@ -12,8 +12,9 @@
                 <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
                     @csrf
 
-                    <a href="{{ route('dashboard.index', auth()->user()->id) }}"
-                        class="btn d-inline btn-outline-success ms-2 ml-mobile">Dashboard</a>
+                    <a href="{{ route('dashboard.index', auth()->user()->id) }}" class="btn d-inline  ms-2 ml-mobile"> <i
+                            class="bi bi-gear-wide-connected fs-1 text-success p-1"></i>
+                    </a>
 
                 </form>
             @endauth
@@ -22,9 +23,10 @@
                 <form class="d-flex">
 
 
-<button type="button" data-bs-toggle="modal" data-bs-target="#loginMobileModal" class="btn border-0 p-0">
-  <i class="fs-1 bi bi-person"></i>
-</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#loginMobileModal"
+                        class="btn border-0 p-0">
+                        <i class="fs-1 bi bi-person"></i>
+                    </button>
 
                 </form>
             @endif

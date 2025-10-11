@@ -121,6 +121,81 @@
             left: 0;
             z-index: -1;
         }
+        
+             .card-body {
+                    text-align: right;
+                }
+
+                .card-img-top {
+                    object-fit: cover;
+                    height: 160px;
+                }
+
+                .carousel-control-prev-icon,
+                .carousel-control-next-icon {
+                    filter: none;
+                    background-color: rgb(0, 0, 0);
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+                }
+
+            
+                #desktopCarousel {
+                    position: relative;
+                    padding: 0 60px;
+                   
+                }
+
+               
+                #desktopCarousel .carousel-control-prev,
+                #desktopCarousel .carousel-control-next {
+                    width: 3rem;
+                    height: 3rem;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    position: absolute;
+                }
+
+                #desktopCarousel .carousel-control-prev {
+                    left: -60px;
+                  
+                }
+
+                #desktopCarousel .carousel-control-next {
+                    right: -60px;
+                
+                }
+
+
+                 .card-slider-home {
+  border-radius: 15px; /* گوشه‌های گرد */
+  border: 1.5px solid #ddd; /* حاشیه ملایم */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* سایه نرم */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 200px; /* ارتفاع ثابت برای یکنواختی */
+}
+
+.card-body-slider {
+  padding: 15px 20px;
+  background-color: #fff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
     </style>
 
 
@@ -142,48 +217,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     
-<script>
-  window.addEventListener('load', function () {
-    const script = document.createElement('script');
-    script.src = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
-    script.onload = function () {
-      particlesJS('particles-js', {
-        "particles": {
-          "number": {
-            "value": 60
-          },
-          "color": {
-            "value": "#ffffff"
-          },
-          "shape": {
-            "type": "circle"
-          },
-          "opacity": {
-            "value": 0.7,
-            "random": false
-          },
-          "size": {
-            "value": 2
-          },
-          "move": {
-            "enable": true,
-            "speed": 1.5
-          }
-        },
-        "interactivity": {
-          "events": {
-            "onhover": {
-              "enable": true,
-              "mode": "repulse"
-            }
-          }
-        }
-      });
-    };
-    document.body.appendChild(script);
-  });
-</script>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS('particles-js', {
+    "particles": {
+        "number": {
+            "value": 80
+        },
+        "color": {
+            "value": "#ffffff"
+        },
+        "shape": {
+            "type": "circle"
+        },
+        "opacity": {
+            "value": 0.3,
+            "random": false
+        },
+        "size": {
+            "value": 3
+        },
+        "move": {
+            "enable": true,
+            "speed": 2
+        }
+    },
+    "interactivity": {
+        "events": {
+            "onhover": {
+                "enable": true,
+                "mode": "repulse"
+            }
+        }
+    }
+});
+
+    </script>
 </body>
 
 </html>

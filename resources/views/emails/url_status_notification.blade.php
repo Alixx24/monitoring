@@ -52,15 +52,15 @@
     <section style="max-width: 600px; margin: auto; background-color: #ffffff; padding: 20px; border-radius: 8px;">
       <div style="text-align: center; margin-top: 10px; white-space: nowrap;">
                 <a href="{{ route('home.index') }}"
-                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #076ad3; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
                     Home
                 </a>
                 <a href="{{ route('home.document.index') }}"
-                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #076ad3; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
                     Document
                 </a>
                 <a href="#"
-                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #045ebe; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
+                    style="display: inline-block; padding: 9px 4px; font-size: 10px; background-color: #076ad3; color: white; text-decoration: none; border-radius: 4px; margin: 0 4px;">
                     Contact Us
                 </a>
             </div>
@@ -71,7 +71,7 @@
       
             <hr>
             <p>Hello,</p>
-            <p>The status of the link <strong>{{ $url }}</strong> is <strong>{{ $statusCode }}</strong>.</p>
+            <p>The status of the link <strong>{{ $url }}</strong> is <strong>{{ $statusCode }}</strong>. 🚨</p>
             <p>Please check it.</p>
 
             <!-- Footer -->

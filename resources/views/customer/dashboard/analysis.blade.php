@@ -9,9 +9,9 @@
 
         <div class="bg-light mb-3 p-2">
             <h5>
-                url: {{ $fetchUrls['url'] }} - duration: {{ $fetchUrls['duration_id'] }} - name: {{ $fetchUrls['name'] }} -
+                name: {{ $fetchUrls['name'] }} | 
                 last visited: {{ $fetchUrls['last_visited'] }}
-                <span class="float-end">Wallet: 0</span>
+                
             </h5>
         </div>
 
@@ -47,10 +47,10 @@
                             <td>{{ $item->status == 1 ? 'Active' : 'Deactive' }}</td>
 
 
-                            <td>
+                            {{-- <td>
                                 <a class="btn btn-warning"
                                     href="{{ route('dashboard.analysis.link.index', ['linkId' => auth()->user()->id, 'id' => $item->id]) }}">Click!</a>
-                            </td>
+                            </td> --}}
 
                         </tr>
                     @endforeach
