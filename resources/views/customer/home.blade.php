@@ -3,39 +3,41 @@
 
 @section('content')
     <style>
-      
+
     </style>
 
     <style>
-       
+
     </style>
     <style>
-   
+
     </style>
 
     <section>
         <div class="container">
-            <div id="carouselExample" class="carousel slide " data-bs-ride="carousel">
-                <div class="carousel-inner">
+          
+
+            <div id="uniqueCarouselExample" class="carousel slide unique-carousel-container" data-bs-ride="carousel">
+                <div class="carousel-inner unique-carousel-inner">
                     <div class="carousel-item active">
                         <img src="{{ asset('customer/banner/images/1.webp') }}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('customer/banner/images/2.webp') }}" class="d-block w-100" alt="...">
                     </div>
-                    <!--<div class="carousel-item">-->
-                    <!--    <img src="https://via.placeholder.com/600x300?text=3" class="d-block w-100" alt="...">-->
-                    <!--</div>-->
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <button class="carousel-control-prev unique-carousel-control-prev" type="button"
+                    data-bs-target="#uniqueCarouselExample" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">قبلی</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button class="carousel-control-next unique-carousel-control-next" type="button"
+                    data-bs-target="#uniqueCarouselExample" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">بعدی</span>
                 </button>
             </div>
+
 
             <div class="container text-light">
                 <div class="row justify-content-center">
@@ -154,7 +156,7 @@
             </div>
 
             <style>
-           
+
             </style>
 
             </head>
@@ -162,41 +164,40 @@
             <body>
 
                 <div class="container py-4">
-                 
-<style>
-    .card-slider-home {
-  border-radius: 15px; /* گوشه‌های گرد */
-  border: 1.5px solid #ddd; /* حاشیه ملایم */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* سایه نرم */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-}
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+                    <style>
+                        .card-slider-home {
+                            border-radius: 15px;
+                            border: 1.5px solid #ddd;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            overflow: hidden;
+                        }
 
-.card-img-top {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  object-fit: cover;
-  height: 200px; /* ارتفاع ثابت برای یکنواختی */
-}
+                        .card:hover {
+                            transform: scale(1.05);
+                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                        }
 
-.card-body-slider {
-  padding: 15px 20px;
-  background-color: #fff;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
+                        .card-img-top {
+                            border-top-left-radius: 15px;
+                            border-top-right-radius: 15px;
+                            object-fit: cover;
+                            height: 200px;
+                        }
 
-</style>
-               
+                        .card-body-slider {
+                            padding: 15px 20px;
+                            background-color: #fff;
+                            border-bottom-left-radius: 15px;
+                            border-bottom-right-radius: 15px;
+                        }
+                    </style>
+
                     <div id="desktopCarousel" class="carousel slide d-none d-md-block m-5" data-bs-ride="carousel">
                         <div class="carousel-inner ">
 
-                       
+
                             <div class="carousel-item active">
                                 <div class="row g-3">
                                     <div class="col-md-4">
@@ -232,7 +233,7 @@
                                 </div>
                             </div>
 
-                         
+
                             <div class="carousel-item">
                                 <div class="row g-3">
                                     <div class="col-md-4">
@@ -282,11 +283,11 @@
                         </button>
                     </div>
 
-                 
+
                     <div id="mobileCarousel" class="carousel slide d-block d-md-none mt-4" data-bs-ride="carousel">
                         <div class="carousel-inner">
 
-                        
+
                             <div class="carousel-item active">
                                 <div class="card card-slider-home shadow-sm">
                                     <img src="https://picsum.photos/seed/1/800/400" class="card-img-top" alt="">
@@ -297,7 +298,7 @@
                                 </div>
                             </div>
 
-                          
+
                             <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
                                     <img src="https://picsum.photos/seed/2/800/400" class="card-img-top" alt="">
@@ -308,7 +309,7 @@
                                 </div>
                             </div>
 
-                          
+
                             <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
                                     <img src="https://picsum.photos/seed/3/800/400" class="card-img-top" alt="">
@@ -319,10 +320,10 @@
                                 </div>
                             </div>
 
-                          
+
                         </div>
 
-                      
+
                         <button class="carousel-control-prev" type="button" data-bs-target="#mobileCarousel"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon"></span>

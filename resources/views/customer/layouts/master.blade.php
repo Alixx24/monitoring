@@ -195,7 +195,53 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+           .unique-carousel-container {
+                    border-radius: 15px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    max-width: 100%;
+                    margin: 20px auto;
+                }
 
+                .unique-carousel-inner img {
+                    border-radius: 15px;
+                    object-fit: cover;
+                    height: 300px;
+                    transition: transform 0.5s ease;
+                }
+
+                .unique-carousel-inner .carousel-item.active img {
+                    transform: scale(1.05);
+                }
+
+                .unique-carousel-control-prev,
+                .unique-carousel-control-next {
+                    top: 50% !important;
+                    transform: translateY(-50%);
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(255, 255, 255, 0.6);
+                    border-radius: 50%;
+                    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+                    opacity: 1;
+                }
+
+
+
+                @media (min-width: 992px) {
+                    .unique-carousel-container {
+                        max-width: 1000px;
+                        margin: 20px auto;
+                        border-radius: 15px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                    }
+
+
+                    .unique-carousel-inner img {
+                        height: 450px;
+                    }
+                }
     </style>
 
 
