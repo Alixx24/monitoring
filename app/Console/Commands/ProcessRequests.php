@@ -50,12 +50,12 @@ class ProcessRequests extends Command
 
                 // اگر status code غیر از 200 بود، ارسال ایمیل
                 if ($response->status() !== 200 && !empty($request->email)) {
-                    SendUrlStatusEmailJob::dispatch(
-                        $request->email,
-                        $request->url,
-                        $response->status()
-                    );
-                    $this->info("Dispatched email job to {$request->email} (Status: {$response->status()})");
+                    // SendUrlStatusEmailJob::dispatch(
+                    //     $request->email,
+                    //     $request->url,
+                    //     $response->status()
+                    // );
+                    // $this->info("Dispatched email job to {$request->email} (Status: {$response->status()})");
                 }
 
                 $this->info("Request processed. Status code: {$response->status()}");
@@ -82,12 +82,12 @@ class ProcessRequests extends Command
 
                 // ارسال ایمیل در صورت خطا
                 if (!empty($request->email)) {
-                    SendUrlStatusEmailJob::dispatch(
-                        $request->email,
-                        $request->url,
-                        'Connection Error'
-                    );
-                    $this->info("Dispatched failure email job to {$request->email}");
+                    // SendUrlStatusEmailJob::dispatch(
+                    //     $request->email,
+                    //     $request->url,
+                    //     'Connection Error'
+                    // );
+                    // $this->info("Dispatched failure email job to {$request->email}");
                 }
             }
         }
