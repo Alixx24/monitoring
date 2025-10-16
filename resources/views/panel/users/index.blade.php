@@ -9,6 +9,7 @@
                 <th scope="col">id</th>
                 <th scope="col">name</th>
                 <th scope="col">email</th>
+                <th scope="col">count</th>
             
                 <th scope="col">created_at</th>
             </tr>
@@ -22,7 +23,7 @@
             
 
   
-                    
+                    <td>{{ $request->requests_count }}</td>
                     <td>{{ $request->created_at }}</td>
 
                     <td>

@@ -10,7 +10,7 @@ class UserPanelController extends Controller
 {
     public function index()
     {
-        $fatchUsers = User::all();
+        $fatchUsers = User::withCount('requests')->get();
         
         return view('panel.users.index', compact('fatchUsers'));
     }
