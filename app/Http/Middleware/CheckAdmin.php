@@ -15,12 +15,11 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         if (!auth()->check()) {
             return redirect()->route('home.index')->with('error', 'لطفاً ابتدا وارد شوید');
         }
 
-        if (auth()->user()->user_role != 1) {
+        if (auth()->user()->user_status != 1) {
             return redirect()->route('home.index')->with('error', 'شما دسترسی ادمین ندارید');
         }
         return $next($request);

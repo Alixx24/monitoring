@@ -75,7 +75,10 @@
             <p>Please check it.</p>
 
             <!-- Footer -->
+            <div style="text-align: center">    <img src="https://alixdev.com/icon/telegram.svg" alt="Telegram" width="24" height="24" style="vertical-align: middle;">
 
+    <img src="https://alixdev.com/icon/github.svg" alt="Telegram" width="24" height="24" style="vertical-align: middle;">
+              </div>
             <div
                 style="text-align: center; font-size: 14px; color: #999999; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
                 © 2025 <a href="https://alixdev.ir" style="color: #999999; text-decoration: none;">alixdev.ir</a>

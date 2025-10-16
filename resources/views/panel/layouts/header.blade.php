@@ -11,6 +11,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
+             <li class="nav-item">
+          <a class="nav-link" href="{{ route('panel.users.index') }}">Users</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('panel.request.index') }}">Reqests</a>
         </li>

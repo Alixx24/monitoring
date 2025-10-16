@@ -28,7 +28,7 @@
 
 
                         <th scope="col">Status</th>
-                        <th scope="col">Analysis</th>
+                   
 
                     </tr>
                 </thead>
@@ -54,8 +54,11 @@
 
                         </tr>
                     @endforeach
+                    {{ $fetchRequestStatus->links() }}
+
                 </tbody>
             </table>
+              {{ $fetchRequestStatus->links() }}
         </div>
 
     </section>

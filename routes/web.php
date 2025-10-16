@@ -5,6 +5,7 @@ use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Panel\DurationController;
 use App\Http\Controllers\Panel\RequestController;
+use App\Http\Controllers\Panel\UserPanelController;
 use App\Http\Middleware\CheckAdmin;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -99,3 +100,7 @@ Route::prefix('/panel/duration')->middleware('admin')->group(function () {
 });
 
 
+Route::prefix('/panel/users')->middleware('admin')->group(function () {
+    Route::get('/', [UserPanelController::class, 'index'])->name('panel.users.index');
+  
+});

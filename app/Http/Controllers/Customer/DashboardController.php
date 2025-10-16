@@ -64,7 +64,7 @@ class DashboardController extends Controller
         $fetchUrls = RequestModel::where('user_id', $id)->where('id', $linkId)->first();
 
 
-        $fetchRequestStatus = StatusUrl::with('request')->where('request_id', $linkId)->get();
+        $fetchRequestStatus = StatusUrl::with('request')->where('request_id', $linkId)->paginate(20);
 
         return view('customer.dashboard.analysis', compact('user', 'fetchUrls', 'fetchRequestStatus'));
     }
