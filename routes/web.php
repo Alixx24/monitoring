@@ -26,10 +26,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 //User Dashboard
-Route::prefix('/user/dashboard')->group(function () {
+Route::prefix('/user/dashboard')->middleware('auth')->group(function () {
     Route::get('/{id}', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/user/dashboard/analysis/{linkId}/{id}', [DashboardController::class, 'analysis'])->name('dashboard.analysis.link.index');
-
+    Route::get('/analysis/{linkId}/{id}', [DashboardController::class, 'analysis'])->name('dashboard.analysis.link.index');
     Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.request.store');
     Route::delete('/analysis/delete/{linkId}/{id}', [DashboardController::class, 'delete'])->name('dashboard.request.delete');
     Route::post('/update-status/{id}', [DashboardController::class, 'updateStatus']);

@@ -12,12 +12,20 @@ use App\Models\StatusUrl;
 
 class DashboardController extends Controller
 {
+
+    private $userId;
+
+    public function __construct()
+    {
+        $this->userId = auth()->id();
+    }
+
     public function index($id)
     {
 
         $user = User::find($id);
 
-        $userId = auth()->user()->id;
+       $userId = $this->userId;
         $fetchRequest = RequestModel::where('user_id', $userId)->get();
 
         return view('customer.dashboard.index', compact('user', 'fetchRequest'));
@@ -32,9 +40,23 @@ class DashboardController extends Controller
     }
 
 
+
+    public function countRequests(RequestModelRequest $reqValid)
+    {
+        $userId  = $this->userId;
+        return RequestModel::where('user_id', $userId)->count();
+    }
+
     public function store(RequestModelRequest $reqValid)
     {
-        $userId  = auth()->id();
+
+        $userId  = $this->userId;
+        $requestCount = $this->countRequests($reqValid);
+
+        if ($requestCount >= 5) {
+            return redirect()->back()->with('error', 'نمیتونید بیش از 5request ایجاد کنید');
+        }
+
         $this->createRequest($reqValid, $userId);
 
         return redirect()->back()->with('success', 'Request created successfully');
