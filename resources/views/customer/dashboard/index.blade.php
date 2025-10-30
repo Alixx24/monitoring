@@ -3,7 +3,7 @@
 
 @section('content')
     <a class="btn btn-success ms-5" type="submit" data-bs-toggle="modal" data-bs-target="#createReqModal">create request</a>
-    <a class="btn btn-warning ms-5" type="submit" data-bs-toggle="modal" data-bs-target="#createReqModal">+ unlimited</a>
+    <a class="btn btn-warning ms-5" type="submit" href="{{ route('payment.pay') }}">+ unlimited (90,000 IRT)</a>
 
     <section class="hero-section m-md-5 m-3">
 @if(session('error'))

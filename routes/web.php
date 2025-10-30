@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
+use App\Http\Controllers\PaymentController;
+
+Route::get('/payment', [PaymentController::class, 'pay'])->name('payment.pay'); 
+Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback'); 
+Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success'); 
+Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed'); 
+
+
 
 //Home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
