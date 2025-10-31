@@ -20,11 +20,19 @@
             <div id="uniqueCarouselExample" class="carousel slide unique-carousel-container" data-bs-ride="carousel">
                 <div class="carousel-inner unique-carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('customer/banner/images/1.webp') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('customer/banner/b13.webp') }}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('customer/banner/images/2.webp') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('customer/banner/b15.webp') }}" class="d-block w-100" alt="...">
                     </div>
+                    
+                        <div class="carousel-item">
+                        <img src="{{ asset('customer/banner/b11.webp') }}" class="d-block w-100" alt="...">
+                    </div>
+                    
+                    <!--   <div class="carousel-item">-->
+                    <!--    <img src="{{ asset('customer/banner/b8.webp') }}" class="d-block w-100" alt="...">-->
+                    <!--</div>-->
                 </div>
                 <button class="carousel-control-prev unique-carousel-control-prev" type="button"
                     data-bs-target="#uniqueCarouselExample" data-bs-slide="prev">
@@ -202,7 +210,7 @@
                                 <div class="row g-3">
                                     <div class="col-md-4">
                                         <div class="card card-slider-home  shadow-sm">
-                                            <img src="https://picsum.photos/seed/1/800/400" class="card-img-top"
+                                            <img src={{ asset('customer/banner/b14.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body-slider  ">
                                                 <h5 class="card-title">کارت ۱</h5>
@@ -212,7 +220,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card card-slider-home  shadow-sm">
-                                            <img src="https://picsum.photos/seed/2/800/400" class="card-img-top"
+                                            <img src="{{ asset('customer/banner/b15.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body-slider ">
                                                 <h5 class="card-title">کارت ۲</h5>
@@ -222,7 +230,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card card-slider-home  shadow-sm">
-                                            <img src="https://picsum.photos/seed/3/800/400" class="card-img-top"
+                                            <img src={{ asset('customer/banner/b14.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body-slider ">
                                                 <h5 class="card-title">کارت ۳</h5>
@@ -238,7 +246,7 @@
                                 <div class="row g-3">
                                     <div class="col-md-4">
                                         <div class="card card-slider-home shadow-sm">
-                                            <img src="https://picsum.photos/seed/4/800/400" class="card-img-top"
+                                            <img src="{{ asset('customer/banner/b14.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body-slider ">
                                                 <h5 class="card-title">کارت ۴</h5>
@@ -248,7 +256,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card card-slider-home  shadow-sm">
-                                            <img src="https://picsum.photos/seed/5/800/400" class="card-img-top"
+                                            <img src="{{ asset('customer/banner/b11.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body-slider ">
                                                 <h5 class="card-title">کارت ۵</h5>
@@ -258,7 +266,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card card-slider-home shadow-sm">
-                                            <img src="https://picsum.photos/seed/6/800/400" class="card-img-top"
+                                            <img src="{{ asset('customer/banner/b15.webp') }}" class="card-img-top"
                                                 alt="">
                                             <div class="card-body">
                                                 <h5 class="card-title">کارت ۶</h5>
@@ -290,7 +298,7 @@
 
                             <div class="carousel-item active">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="https://picsum.photos/seed/1/800/400" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b16.webp') }}" class="card-img-top" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">کارت ۱</h5>
                                         <p class="card-text small">توضیح کارت.</p>
@@ -298,13 +306,12 @@
                                 </div>
                             </div>
 
-
-                            <div class="carousel-item">
+          <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="https://picsum.photos/seed/2/800/400" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b14.webp') }}" class="card-img-top" alt="">
                                     <div class="card-body">
-                                        <h5 class="card-title">کارت ۲</h5>
-                                        <p class="card-text small">توضیح دوم.</p>
+                                        <h5 class="card-title">کارت ۳</h5>
+                                        <p class="card-text small">توضیح سوم.</p>
                                     </div>
                                 </div>
                             </div>
@@ -312,7 +319,7 @@
 
                             <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="https://picsum.photos/seed/3/800/400" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b17.webp') }}" class="card-img-top" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">کارت ۳</h5>
                                         <p class="card-text small">توضیح سوم.</p>
