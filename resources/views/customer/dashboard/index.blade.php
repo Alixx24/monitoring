@@ -2,34 +2,59 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <a class="btn btn-success ms-5" type="submit" data-bs-toggle="modal" data-bs-target="#createReqModal">create request</a>
-    <a class="btn btn-warning ms-5" type="submit" href="{{ route('payment.pay') }}">+ unlimited (90,000 IRT)</a>
+
+    <style>
+        .btn-small-text {
+            font-size: 0.8rem;
+            /* متن کوچک‌تر */
+            padding: 0.7rem 1rem;
+            /* اندازه دکمه حفظ شود */
+            line-height: 1.2;
+            /* تنظیم خط متن داخل دکمه */
+            white-space: nowrap;
+            /* تک‌خطی */
+        }
+    </style>
+    <section>
+        <a class="btn btn-light text-dark " href="{{ route('home.index') }}"><i class="bi bi-arrow-left"></i></a>
+
+        <a class="btn btn-light text-dark ms-3" type="submit" data-bs-toggle="modal" data-bs-target="#createReqModal">create
+            request</a>
+        @php
+            $payment = \App\Models\Payment::where('user_id', auth()->id())
+                ->where('status', 'paid')
+                ->first();
+        @endphp
+
+        <a class="btn btn-small-text {{ $payment ? 'btn-primary' : 'btn-warning' }}" type="submit"
+            href="{{ $payment ? '#' : route('payment.pay') }}">
+            {{ $payment ? 'Upgraded' : '+unlimited(90,000 IRT)' }}
+        </a>
+
+
+    </section>
+
 
     <section class="hero-section m-md-5 m-3">
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
 
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
-        <div class="bg-light mb-3 p-2">
-            <h5>
-             {{ $user->email }}
-               
-            </h5>
-        </div>
 
-        <div class="table-responsive">
+
+        <div class="table-responsive rounded-4">
             <table class="table">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">#</th>
+
                         <th scope="col">Name</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Url</th>
@@ -40,14 +65,29 @@
                 </thead>
 
                 <tbody>
+
+
                     @foreach ($fetchRequest as $item)
                         <tr>
-                            <th scope="row">1</th>
+
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->duration_id }} Min</td>
-                            <td>{{ $item->url }}</td>
+                            <td>{{ $item->duration->duration_id }} Min</td>
+
                             <td>
-                              
+
+                                <span class="d-inline d-md-none">
+                                    {{ \Illuminate\Support\Str::limit($item->url, 12, '...') }}
+                                </span>
+
+
+                                <span class="d-none d-md-inline">
+                                    {{ $item->url }}
+                                </span>
+                            </td>
+
+
+                            <td>
+
                                 <input class="form-check-input status-toggle" type="checkbox" data-id="{{ $item->id }}"
                                     {{ $item->status == 1 ? 'checked' : '' }}>
                             </td>
@@ -75,27 +115,27 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-      $(document).ready(function() {
-        $('.status-toggle').on('change', function() {
-            var itemId = $(this).data('id');
-            var status = $(this).is(':checked') ? 1 : 0;
+        $(document).ready(function() {
+            $('.status-toggle').on('change', function() {
+                var itemId = $(this).data('id');
+                var status = $(this).is(':checked') ? 1 : 0;
 
-            $.ajax({
-                url: '/user/dashboard/update-status/' + itemId,
-                method: 'POST',
-                data: {
-                    status: status,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    alert('وضعیت با موفقیت بروزرسانی شد');
-                },
-                error: function () {
-                    alert('خطا در بروزرسانی');
-                }
+                $.ajax({
+                    url: '/user/dashboard/update-status/' + itemId,
+                    method: 'POST',
+                    data: {
+                        status: status,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        alert('وضعیت با موفقیت بروزرسانی شد');
+                    },
+                    error: function() {
+                        alert('خطا در بروزرسانی');
+                    }
+                });
             });
         });
-    });
     </script>
     <x-create-request-modal />
 @endsection

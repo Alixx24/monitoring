@@ -1,5 +1,5 @@
 @extends('customer.layouts.master')
-@section('title', 'Dashboard')
+@section('title', 'AlixDev')
 
 @section('content')
     <style>
@@ -19,16 +19,16 @@
 
             <div id="uniqueCarouselExample" class="carousel slide unique-carousel-container" data-bs-ride="carousel">
                 <div class="carousel-inner unique-carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('customer/banner/b13.webp') }}" class="d-block w-100" alt="...">
+                     <div class="carousel-item">
+                        <img src="{{ asset('customer/banner/b11.webp') }}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('customer/banner/b15.webp') }}" class="d-block w-100" alt="...">
                     </div>
-                    
-                        <div class="carousel-item">
-                        <img src="{{ asset('customer/banner/b11.webp') }}" class="d-block w-100" alt="...">
+                     <div class="carousel-item active">
+                        <img src="{{ asset('customer/banner/b13.webp') }}" class="d-block w-100" alt="...">
                     </div>
+                      
                     
                     <!--   <div class="carousel-item">-->
                     <!--    <img src="{{ asset('customer/banner/b8.webp') }}" class="d-block w-100" alt="...">-->
