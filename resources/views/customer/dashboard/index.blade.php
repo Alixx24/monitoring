@@ -3,18 +3,7 @@
 
 @section('content')
 
-    <style>
-        .btn-small-text {
-            font-size: 0.8rem;
 
-            padding: 0.7rem 1rem;
-
-            line-height: 1.2;
-
-            white-space: nowrap;
-
-        }
-    </style>
     <section>
         <a class="btn btn-light text-dark " href="{{ route('home.index') }}"><i class="bi bi-arrow-left"></i></a>
 
@@ -32,7 +21,7 @@
             </a>
         @else
             <a class="btn btn-small-text btn-warning" type="submit" data-bs-toggle="modal" data-bs-target="#payModal">
-                {{ $payment ? 'Upgraded' : '+unlimited(90,000 IRT)' }}
+                {{ $payment ? 'Upgraded' : '+unlimited' }}
             </a>
         @endif
 

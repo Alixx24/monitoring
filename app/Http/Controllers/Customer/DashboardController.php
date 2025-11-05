@@ -7,6 +7,7 @@ use App\Models\Duration;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RequestModelRequest;
+use App\Models\Payment;
 use App\Models\RequestModel;
 use App\Models\StatusUrl;
 
@@ -25,7 +26,7 @@ class DashboardController extends Controller
 
         $user = User::find($id);
 
-       $userId = $this->userId;
+        $userId = $this->userId;
         $fetchRequest = RequestModel::with('duration')->where('user_id', $userId)->get();
 
         return view('customer.dashboard.index', compact('user', 'fetchRequest'));
@@ -49,12 +50,16 @@ class DashboardController extends Controller
 
     public function store(RequestModelRequest $reqValid)
     {
-
-        $userId  = $this->userId;
+        $userId = $this->userId;
         $requestCount = $this->countRequests($reqValid);
 
-        if ($requestCount >= 5) {
-            return redirect()->back()->with('error', 'نمیتونید بیش از 5request ایجاد کنید');
+
+        $hasPaid = Payment::where('user_id', $userId)
+            ->where('status', 'paid')
+            ->exists();
+
+        if (!$hasPaid && $requestCount >= 4) {
+            return redirect()->back()->with('error', "You can't create more than 4 requests.");
         }
 
         $this->createRequest($reqValid, $userId);

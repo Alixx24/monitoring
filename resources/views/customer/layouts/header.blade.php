@@ -4,6 +4,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
     <div class="container-fluid custom-margin-left">
         <a class="navbar-brand" href="{{ route('home.index') }}">Home</a>
+
+
+
         <div class="d-block d-md-none ml-mbobile-sign ">
 
             @auth
@@ -40,7 +43,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+                <div class="d-block d-md-none p-3">
+                    @auth
+                        {{ auth()->user()->email }}
+                    @endauth
+                </div>
 
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Platform</a>
@@ -82,6 +89,29 @@
                     <a class="nav-link" href="{{ route('home.document.index') }}" tabindex="-1"
                         aria-disabled="true">Documention</a>
                 </li>
+
+
+
+
+
+
+                <div class="d-block d-md-none p-3">
+                    @auth
+                        <form action="{{ route('logout.post') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger ms-2">
+                                Log out
+                            </button>
+                  
+
+                        </form>
+                    @endauth
+                </div>
+
+
+
+
+
 
             </ul>
             <div class="d-none d-md-block">

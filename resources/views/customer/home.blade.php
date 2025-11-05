@@ -15,21 +15,21 @@
 
     <section>
         <div class="container">
-          
+
 
             <div id="uniqueCarouselExample" class="carousel slide unique-carousel-container" data-bs-ride="carousel">
                 <div class="carousel-inner unique-carousel-inner">
-                     <div class="carousel-item">
+                    <div class="carousel-item">
                         <img src="{{ asset('customer/banner/b11.webp') }}" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <img src="{{ asset('customer/banner/b15.webp') }}" class="d-block w-100" alt="...">
                     </div>
-                     <div class="carousel-item active">
+                    <div class="carousel-item">
                         <img src="{{ asset('customer/banner/b13.webp') }}" class="d-block w-100" alt="...">
                     </div>
-                      
-                    
+
+
                     <!--   <div class="carousel-item">-->
                     <!--    <img src="{{ asset('customer/banner/b8.webp') }}" class="d-block w-100" alt="...">-->
                     <!--</div>-->
@@ -72,34 +72,36 @@
 
 
             {{-- 3 cards --}}
-            <div class="d-flex justify-content-center align-items-end gap-3 mt-5">
-
-                <div class="card card-price text-white bg-dark mb-3">
-                    <div class="card-header">Limited</div>
-                    <div class="card-body">
-                        <h5 class="card-title">200 requests / Day</h5>
-                        <p class="card-text">Free</p>
+            <div class="d-flex justify-content-center gap-3 mt-5" style="flex-wrap: nowrap;">
+                <div class="card card-price text-white bg-dark" style="flex: 1; min-width: 0;">
+                    <div class="card-header" style="font-size: 0.8rem;">Unlimited</div>
+                    <div class="card-body text-start d-flex flex-column">
+                        <h5 class="card-title">Unlimited</h5>
+                        <p class="card-text mt-auto">Coming Soon!</p>
                     </div>
                 </div>
 
+                <div class="card card-price text-white bg-secondary" style="flex: 1; min-width: 0;">
+                    <a class="text-decoration-none d-block text-white"  data-bs-toggle="modal" data-bs-target="#payModal" style="flex:1; min-width:0;">
 
-                <div class="card card-price text-white bg-secondary  middle">
-                    <div class="card-header">Unlimited</div>
-                    <div class="card-body">
-                        <h5 class="card-title">+1000 requests / Day</h5>
-                        <br>
-                        <p class="card-text">100,000 IRT</p>
-                    </div>
+
+                        <div class="card-header" style="font-size: 0.8rem;">Unlimited</div>
+                        <div class="card-body text-start d-flex flex-column">
+                            <h5 class="card-title">+ 4 Url</h5>
+                            <p class="card-text mt-auto">90,000 IRT</p>
+                        </div>
+                    </a>
                 </div>
 
-                <div class="card card-price text-white bg-dark mb-3">
-                    <div class="card-header">Limited</div>
-                    <div class="card-body">
-                        <h5 class="card-title">100 requests / Day</h5>
-                        <p class="card-text">Free</p>
+                <div class="card card-price text-white bg-dark" style="flex: 1; min-width: 0;">
+                    <div class="card-header" style="font-size: 0.8rem;">Limited</div>
+                    <div class="card-body text-start d-flex flex-column">
+                        <h5 class="card-title">It is for 4 urls</h5>
+                        <p class="card-text mt-auto">Free</p>
                     </div>
                 </div>
             </div>
+
 
             {{-- to button --}}
 
@@ -124,7 +126,7 @@
             <div class="row">
                 <div class="col mb-3">
                     <div class="collapse multi-collapse" id="multiCollapseExample1">
-                        <div class="card card-body">
+                        <div class="card card-body text-start">
                             <h4>Uptime monitoring</h4> Our Uptime Monitoring service ensures your website is always online
                             and accessible. We continuously check your site’s status and immediately notify you if any
                             downtime occurs, helping you maintain a reliable online presence.
@@ -133,7 +135,7 @@
                 </div>
                 <div class="col mb-3">
                     <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card card-body">
+                        <div class="card card-body  text-start">
                             <h4>Log Management</h4> Our Log Management system collects, stores, and analyzes your website’s
                             logs to help you track activities, troubleshoot issues, and improve security. Access detailed
                             reports anytime to stay informed about your site’s performance.
@@ -298,7 +300,8 @@
 
                             <div class="carousel-item active">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="{{ asset('customer/banner/b16.webp') }}" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b16.webp') }}" class="card-img-top"
+                                        alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">کارت ۱</h5>
                                         <p class="card-text small">توضیح کارت.</p>
@@ -306,9 +309,10 @@
                                 </div>
                             </div>
 
-          <div class="carousel-item">
+                            <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="{{ asset('customer/banner/b14.webp') }}" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b14.webp') }}" class="card-img-top"
+                                        alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">کارت ۳</h5>
                                         <p class="card-text small">توضیح سوم.</p>
@@ -319,7 +323,8 @@
 
                             <div class="carousel-item">
                                 <div class="card card-slider-home shadow-sm">
-                                    <img src="{{ asset('customer/banner/b17.webp') }}" class="card-img-top" alt="">
+                                    <img src="{{ asset('customer/banner/b17.webp') }}" class="card-img-top"
+                                        alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">کارت ۳</h5>
                                         <p class="card-text small">توضیح سوم.</p>
@@ -464,4 +469,5 @@
 
 
     </section>
+    <x-approve-pay />
 @endsection

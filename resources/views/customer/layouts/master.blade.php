@@ -170,9 +170,9 @@
 
 
                  .card-slider-home {
-  border-radius: 15px; /* گوشه‌های گرد */
-  border: 1.5px solid #ddd; /* حاشیه ملایم */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* سایه نرم */
+  border-radius: 15px; 
+  border: 1.5px solid #ddd; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
@@ -186,7 +186,7 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   object-fit: cover;
-  height: 200px; /* ارتفاع ثابت برای یکنواختی */
+  height: 200px; 
 }
 
 .card-body-slider {
@@ -226,7 +226,16 @@
                     opacity: 1;
                 }
 
+     .btn-small-text {
+            font-size: 0.8rem;
 
+            padding: 0.7rem 1rem;
+
+            line-height: 1.2;
+
+            white-space: nowrap;
+
+        }
 
                 @media (min-width: 992px) {
                     .unique-carousel-container {

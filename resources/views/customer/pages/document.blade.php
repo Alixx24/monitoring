@@ -8,7 +8,7 @@
             font-family: Vazir, Tahoma, sans-serif;
         }
 
-        /* سایدبار دسکتاپ */
+      
         #sidebar {
             position: fixed;
             top: 0;
@@ -22,13 +22,12 @@
             z-index: 1030;
         }
 
-        /* فاصله محتوا در دسکتاپ */
+       
         #main-content {
             margin-left: 230px;
             padding: 20px;
         }
 
-        /* دکمه همبرگر بالا سمت چپ، فقط موبایل */
         #menuBtn {
             position: fixed;
             top: 15px;
@@ -44,7 +43,7 @@
             display: none;
         }
 
-        /* لینک های داخل منو */
+       
         #sidebar a,
         .offcanvas-body a {
             display: block;
@@ -72,7 +71,7 @@
             font-weight: 700;
         }
 
-        /* نمایش دکمه منو و مخفی کردن سایدبار روی موبایل */
+        
         @media (max-width: 767.98px) {
             #sidebar {
                 display: none;
@@ -90,13 +89,13 @@
     </style>
     </head>
     <div>
-        <!-- دکمه همبرگر -->
+ 
         <button id="menuBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar"
             aria-controls="mobileSidebar">
             ☰ منو
         </button>
 
-        <!-- سایدبار دسکتاپ -->
+     
         <nav id="sidebar" class="d-none d-md-block" aria-label="منوی اصلی">
             <h4 class="mb-4">منو دسترسی</h4>
             <a href="#document" class="nav-link">Monitoring & Alerting</a>
@@ -104,7 +103,7 @@
             <a href="#aboutus" class="nav-link">How to Get Started</a>
         </nav>
 
-        <!-- سایدبار موبایل (offcanvas) -->
+       
         <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="mobileSidebarLabel">منو دسترسی</h5>
@@ -280,7 +279,7 @@
 
                 <p>
                     If you have any questions, issues, or need help, you can reach our support team via email at
-                    <a href="mailto:support@example.com">support@example.com</a> or through the contact form on our website.
+                    <a href="mailto:monitorings@alixdev.ir	">monitorings@alixdev.ir </a> or through the contact form on our website.
                     We are committed to providing fast and helpful assistance.
                 </p>
 
