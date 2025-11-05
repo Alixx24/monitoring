@@ -6,13 +6,13 @@
     <style>
         .btn-small-text {
             font-size: 0.8rem;
-            /* متن کوچک‌تر */
+
             padding: 0.7rem 1rem;
-            /* اندازه دکمه حفظ شود */
+
             line-height: 1.2;
-            /* تنظیم خط متن داخل دکمه */
+
             white-space: nowrap;
-            /* تک‌خطی */
+
         }
     </style>
     <section>
@@ -26,11 +26,15 @@
                 ->first();
         @endphp
 
-        <a class="btn btn-small-text {{ $payment ? 'btn-primary' : 'btn-warning' }}" type="submit"
-            href="{{ $payment ? '#' : route('payment.pay') }}">
-            {{ $payment ? 'Upgraded' : '+unlimited(90,000 IRT)' }}
-        </a>
-
+        @if ($payment)
+            <a class="btn btn-small-text btn-primary" type="submit" href="#">
+                Upgraded
+            </a>
+        @else
+            <a class="btn btn-small-text btn-warning" type="submit" data-bs-toggle="modal" data-bs-target="#payModal">
+                {{ $payment ? 'Upgraded' : '+unlimited(90,000 IRT)' }}
+            </a>
+        @endif
 
     </section>
 
@@ -128,14 +132,18 @@
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        alert('وضعیت با موفقیت بروزرسانی شد');
+                        alert('Status updated successfully');
+
                     },
                     error: function() {
-                        alert('خطا در بروزرسانی');
+                        alert('Error updating');
+
                     }
                 });
             });
         });
     </script>
+    <x-approve-pay />
+
     <x-create-request-modal />
 @endsection
